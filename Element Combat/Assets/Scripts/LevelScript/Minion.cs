@@ -6,14 +6,14 @@ public class Minion : MonoBehaviour {
     public Collider ColliderMinion;
     public Collider ColliderPlayer;
    
-
 	void changeHealth( float damage){
 	
-	currentHealth -= damage;
+		currentHealth -= damage;
 
-	if(health - damage < 0){
-		//destroy the minion gameobject
-	}
+		if(health - damage < 0){
+			dropHealthItem(int healthItemDropChance, Vector3 characterPosition);
+			//destroy the minion gameobject
+		}
 	
 	}
 
