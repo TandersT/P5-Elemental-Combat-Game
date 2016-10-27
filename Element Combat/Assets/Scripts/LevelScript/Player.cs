@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Player : Character {
@@ -8,17 +9,31 @@ public class Player : Character {
     public bool alive;
 
     void Start() {
-        element hitElement;
-        element attackElement;
-        hitElement = element.fire;
-        Debug.Log(hitElement);
+
+        
     }
 
     void Update() {
-        adjustElementMultiplierWeightWeak(elementMultiplierWeight);
-        adjustElementMultiplierWeightStrong(elementMultiplierWeight);
-        lookUpElementMultiplier(hitElement, attackElement, adjustElementMultiplierWeightWeak(elementMultiplierWeight),
-        adjustElementMultiplierWeightStrong(elementMultiplierWeight), elementsFloats, elementsInts);
+        if (Input.GetKeyDown(KeyCode.A)) {
+            adjustElementMultiplierWeightWeak(elementMultiplierWeight);
+            adjustElementMultiplierWeightStrong(elementMultiplierWeight);
+            lookUpElementMultiplier(adjustElementMultiplierWeightWeak(elementMultiplierWeight),
+            adjustElementMultiplierWeightStrong(elementMultiplierWeight), currentElementFloats);
+            Debug.Log("Strong attack!: " + currentElementFloats[0]);
+            for (int i = 0; i < currentElementFloats.Length; i++) {
+                currentElementFloats[i] = initialElementFloats[i];
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.B)) {
+            adjustElementMultiplierWeightWeak(elementMultiplierWeight);
+            adjustElementMultiplierWeightStrong(elementMultiplierWeight);
+            lookUpElementMultiplier(adjustElementMultiplierWeightWeak(elementMultiplierWeight),
+            adjustElementMultiplierWeightStrong(elementMultiplierWeight), currentElementFloats);
+            Debug.Log("Weak attack!: " + currentElementFloats[1]);
+            for (int i = 0; i < currentElementFloats.Length; i++) {
+                currentElementFloats[i] = initialElementFloats[i];
+            }
+        }
     }
 
     protected override float adjustElementMultiplierWeightStrong(float elementMultiplierWeight) {
@@ -27,8 +42,8 @@ public class Player : Character {
     protected override float adjustElementMultiplierWeightWeak(float elementMultiplierWeight) {
         return base.adjustElementMultiplierWeightWeak(elementMultiplierWeight);
     }
-    protected override void lookUpElementMultiplier(element attacker, element hitter, float strong, float weak, float[] elementFloats, int[] elementInts) {
-        base.lookUpElementMultiplier(attacker, hitter, strong, weak, elementFloats, elementInts);
+    protected override void lookUpElementMultiplier(float strong, float weak, float[] elementFloats) {
+        base.lookUpElementMultiplier(strong, weak, elementFloats);
     }
 
     void move(Vector3 endPosition, Vector3 playerPosition) {
