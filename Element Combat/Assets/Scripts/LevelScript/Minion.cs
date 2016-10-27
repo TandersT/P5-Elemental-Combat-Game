@@ -5,24 +5,26 @@ using UnityEngine;
 public class Minion : MonoBehaviour {
     public Collider ColliderMinion;
     public Collider ColliderPlayer;
-    // Use this for initialization
-    void Start () {
-		
+   
+
+	void changeHealth( float damage){
+	
+	currentHealth -= damage;
+
+	if(health - damage < 0){
+		//destroy the minion gameobject
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
 	}
-    void changeHealth() {
 
-    }
     void meleeAttack(Collider ColliderPlayer, Collider ColliderMinion) {
 
     }
+
     void pathfinder(Vector3 Pos) {
 
     }
+    
     void findNearestPlayer(Vector3[] playerPositions) {
 
     }
