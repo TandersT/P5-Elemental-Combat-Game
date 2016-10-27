@@ -1,0 +1,7 @@
+Element Combat (Temporary name)
+
+To open in Unity, go to assets -> scenes -> Menu.unity
+
+You can playtest the game there, as well as look into any script.
+I have tried adding information to all scripts, so they should be understandable.
+Otherwise contact me and I'll try to get around adding an explanation.
