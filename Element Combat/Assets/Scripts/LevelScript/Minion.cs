@@ -6,13 +6,11 @@ public class Minion : Enemy {
     public Collider ColliderMinion;
     public Collider ColliderPlayer;
 
-    void changeHealth(float changeHealth) {
-        if (currentHealth + changeHealth < 0.0f) {
-            currentHealth = 0.0f;
+    void hit(float damage) {
+       	currentHealth -= damage;
+        if (currentHealth - damage < 0.0f) {
             Destroy(gameObject);
-        } else {
-            currentHealth += changeHealth;
-        }
+        } 
         print("Minion currentHealth: " + currentHealth);
     }
 
@@ -28,8 +26,18 @@ public class Minion : Enemy {
 
     }
     void OnCollisionEnter(Collision _collision) {
-        if (_collision.gameObject.tag == "Bullet")
-            changeHealth(-11);
+
+        if (_collision.gameObject.tag == "Bullet"){
+//        	Debug.Log(_collision.gameObject.element);
+  //      	float elementMultiplier = ElementTable.lookUpElementMultiplier(_collision.gameObject, element1);
+	//        float damage = _collision.gameObject.baseDamage * elementMultiplier;
+      //      hit(damage);
+
+        }
+        
+
+
+        
     }
 
 }

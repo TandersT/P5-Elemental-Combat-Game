@@ -3,8 +3,10 @@
 public class BulletShooter : MonoBehaviour {
 
     public GameObject Bullet_Emitter;
+    public string element = "fire";
     public GameObject Bullet;
     public float Bullet_Forward_Force;
+    public float baseDamage = 10;
     
     void Update() {
         if (Input.GetKeyDown("space")) {
