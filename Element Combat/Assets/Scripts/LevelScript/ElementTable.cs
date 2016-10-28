@@ -19,8 +19,7 @@ public class ElementTable : MonoBehaviour {
 			break;
 			case "earth": row = 1;
 			break;
-			case "water":
-			row = 2;
+			case "water": row = 2;
 			break;
 			default : Debug.Log ("Row not specified.");
 			break;

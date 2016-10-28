@@ -1,28 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ShootProjectile : MonoBehaviour {
-    private float projectileSpeed;
-    private float baseDamage;
-    private enum element { fire, earth, water };
-    private Vector3 direction;
-    private enum whoShotTheProjectile{ player, monster};
-    public Collider projectileCollider;
-    public Collider objectHitCollider;
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+public class BulletShooter : MonoBehaviour {
 
-    }
-    void damage(){
-    }
-    void remove() {
+    public GameObject Bullet_Emitter;
+    public string element;
+    public GameObject Bullet;
+    public float Bullet_Forward_Force;
+    
+    public GameObject owner;
+    public float baseDamage = 10;
 
+    void Start(){
+        // set baseDamage to the baseDamage of owner
+        // set element to the element of owner
     }
 
+    void rangedAttack(){
+        
+    //The Bullet instantiation happens here.
+    GameObject Temporary_Bullet_Handler;
+    Temporary_Bullet_Handler = Instantiate(Bullet, Bullet_Emitter.transform.position, Bullet_Emitter.transform.rotation) as GameObject;
+
+    //Sometimes bullets may appear rotated incorrectly due to the way its pivot was set from the original modeling package.
+    //This is EASILY corrected here, you might have to rotate it from a different axis and or angle based on your particular mesh.
+    Temporary_Bullet_Handler.transform.Rotate(Vector3.left * 90);
+
+    //Retrieve the Rigidbody component from the instantiated Bullet and control it.
+    Rigidbody Temporary_RigidBody;
+    Temporary_RigidBody = Temporary_Bullet_Handler.GetComponent<Rigidbody>();
+            
+    //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force.  
+    Temporary_RigidBody.AddRelativeForce(transform.up * Bullet_Forward_Force);
+    //Basic Clean Up, set the Bullets to self destruct after 10 Seconds, I am being VERY generous here, normally 3 seconds is plenty.
+    Destroy(Temporary_Bullet_Handler, 3.0f);
+
+    }
+    
 }

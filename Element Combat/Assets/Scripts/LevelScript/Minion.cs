@@ -25,6 +25,7 @@ public class Minion : Enemy {
     void findNearestPlayer(Vector3[] playerPositions) {
 
     }
+
     void OnCollisionEnter(Collision _collision) {
 
         if (_collision.gameObject.tag == "Bullet"){
