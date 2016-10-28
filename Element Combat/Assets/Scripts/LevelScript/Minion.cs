@@ -5,17 +5,16 @@ using UnityEngine;
 public class Minion : Enemy {
     public Collider ColliderMinion;
     public Collider ColliderPlayer;
-   
-	void changeHealth( float damage){
-	
-		//currentHealth -= damage;
 
-		//if(health - damage < 0){
-			//dropHealthItem(int healthItemDropChance, Vector3 characterPosition);
-			//destroy the minion gameobject
-		//}
-	
-	}
+    void changeHealth(float changeHealth) {
+        if (currentHealth + changeHealth < 0.0f) {
+            currentHealth = 0.0f;
+            Destroy(gameObject);
+        } else {
+            currentHealth += changeHealth;
+        }
+        print("Minion currentHealth: " + currentHealth);
+    }
 
     void meleeAttack(Collider ColliderPlayer, Collider ColliderMinion) {
 
@@ -28,4 +27,9 @@ public class Minion : Enemy {
     void findNearestPlayer(Vector3[] playerPositions) {
 
     }
+    void OnCollisionEnter(Collision _collision) {
+        if (_collision.gameObject.tag == "Bullet")
+            changeHealth(-11);
+    }
+
 }

@@ -4,7 +4,6 @@ public class BulletShooter : MonoBehaviour {
 
     public GameObject Bullet_Emitter;
     public GameObject Bullet;
-    //public GameObject Shooter;
     public float Bullet_Forward_Force;
     
     void Update() {

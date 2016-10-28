@@ -6,13 +6,9 @@ using UnityEngine;
 public class Player : Character {
     private int playerID;
     private Vector3 facingDirection;
-    public bool alive;
+    public bool alive = true;
     //Movement test
     public float moveSpeed;
-    void Start() {
-
-        
-    }
 
     void Update() {
         //Movement test
@@ -57,13 +53,22 @@ public class Player : Character {
     void shoot(Vector3 facingDirection, Vector3 playerPosition) {
 
     }
-    void changeHealth(float changeHealth) {
 
+    void changeHealth(float changeHealth) {
+        if (currentHealth + changeHealth > maxHealth) {
+            currentHealth = maxHealth;
+        } else if (currentHealth + changeHealth < 0.0f) {
+            currentHealth = 0.0f;
+            alive = false;
+        } else {
+            currentHealth += changeHealth;
+        }
+        print("Player currentHealth: " + currentHealth);
     }
+
     void OnCollisionEnter(Collision _collision) {
         if (_collision.gameObject.tag == "Bullet")
-            health -= 1f;
-            print("Player health: " + health);
+            changeHealth(-6);
     }
 
 }

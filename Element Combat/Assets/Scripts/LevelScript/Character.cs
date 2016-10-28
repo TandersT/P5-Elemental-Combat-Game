@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
     [SerializeField]
+    protected float maxHealth;
+    [SerializeField]
+    protected float currentHealth;
+    [SerializeField]
     protected float damage;
     [SerializeField]
     protected float movementSpeed;
-    [SerializeField]
-    protected float health;
     protected Vector3 characterPosition;
     protected float[] initialElementFloats = { 2, 2, 2 };
     protected float[] currentElementFloats = {2, 2, 2};
@@ -19,6 +21,9 @@ public class Character : MonoBehaviour {
     public float elementMultiplierWeight = 0.5f;
     private float elementMultiplierWeak, elementMultiplierStrong;
     
+    protected void Start() {
+        currentHealth = maxHealth;
+    }
 
     protected virtual float adjustElementMultiplierWeightWeak(float elementMultiplierWeight) {
         return elementMultiplierWeak = 1 - elementMultiplierWeight;
