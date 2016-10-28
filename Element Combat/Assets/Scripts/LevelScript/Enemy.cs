@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : Character {
     public int healtItemDropChance;
     
     void dropHealthItem(int healthItemDropChance, Vector3 enemyPosition) {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour {
+public class Monster : Enemy {
     private float healthElement1;
     private float healthElement2; 
     private enum element{ fire, earth, water};

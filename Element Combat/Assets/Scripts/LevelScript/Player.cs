@@ -7,13 +7,18 @@ public class Player : Character {
     private int playerID;
     private Vector3 facingDirection;
     public bool alive;
-
+    //Movement test
+    public float moveSpeed;
     void Start() {
 
         
     }
 
     void Update() {
+        //Movement test
+        transform.Translate(0f, 0f, moveSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+        transform.Rotate(0f, moveSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f);
+
         if (Input.GetKeyDown(KeyCode.A)) {
             adjustElementMultiplierWeightWeak(elementMultiplierWeight);
             adjustElementMultiplierWeightStrong(elementMultiplierWeight);
@@ -55,4 +60,10 @@ public class Player : Character {
     void changeHealth(float changeHealth) {
 
     }
+    void OnCollisionEnter(Collision _collision) {
+        if (_collision.gameObject.tag == "Bullet")
+            health -= 1f;
+            print("Player health: " + health);
+    }
+
 }
