@@ -6,13 +6,7 @@ public class Minion : Enemy {
     public Collider ColliderMinion;
     public Collider ColliderPlayer;
 
-    void hit(float damage) {
-       	currentHealth -= damage;
-        if (currentHealth - damage < 0.0f) {
-            Destroy(gameObject);
-        } 
-        print("Minion currentHealth: " + currentHealth);
-    }
+
 
     void meleeAttack(Collider ColliderPlayer, Collider ColliderMinion) {
 
@@ -26,19 +20,25 @@ public class Minion : Enemy {
 
     }
 
-    void OnCollisionEnter(Collision _collision) {
-
-        if (_collision.gameObject.tag == "Bullet"){
-//        	Debug.Log(_collision.gameObject.element);
-  //      	float elementMultiplier = ElementTable.lookUpElementMultiplier(_collision.gameObject, element1);
-	//        float damage = _collision.gameObject.baseDamage * elementMultiplier;
-      //      hit(damage);
-
+    void hit(float damage) {
+        currentHealth -= damage;
+        if (currentHealth <= 0.0f) {
+            Destroy(gameObject);
         }
-        
+        Debug.Log(gameObject.name + ": " + currentHealth);
+    }
 
-
-        
+    void OnCollisionEnter(Collision _collision) {
+        if (_collision.gameObject.tag == "Bullet"){
+            string elementAttacker = ShootProjectile.element;
+            string element = "water";
+            Debug.Log(elementAttacker);
+            float damageAttacker = 10;
+            float elementMultiplier = ElementTable.lookUpElementMultiplier(elementAttacker, element);
+            Debug.Log(elementMultiplier);
+	        float damage = damageAttacker * elementMultiplier;
+            hit(damage);
+        } 
     }
 
 }

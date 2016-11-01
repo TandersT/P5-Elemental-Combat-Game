@@ -2,13 +2,13 @@
 using System.Collections;
 
 public class ElementTable : MonoBehaviour {
-	[Range(0,1)]
-	public float elementWeight;
-	private float strong = 1.5f;
-	private float weak = 0.5f;
-	private float same = 1.0f;
+    [SerializeField]
+	public static float elementWeight = 0.5f;
+	private static float strong = 1.5f;
+	private static float weak = 0.5f;
+	private static float same = 1.0f;
 
-	public float lookUpElementMultiplier(string attackingElement, string defendingElement){
+	public static float lookUpElementMultiplier(string attackingElement, string defendingElement){
 		int col = 0, row = 0;
 		strong = 1.0f + elementWeight;
 		weak = 1.0f - elementWeight;
@@ -16,6 +16,7 @@ public class ElementTable : MonoBehaviour {
 
 		switch(attackingElement){
 			case "fire": row = 0;
+                Debug.Log("fire attack");
 			break;
 			case "earth": row = 1;
 			break;
@@ -31,15 +32,12 @@ public class ElementTable : MonoBehaviour {
 			case "earth": col = 1;
 			break;
 			case "water": col = 2;
-			break;
+                Debug.Log("water def");
+                break;
 			default : Debug.Log ("Column not specified.");
 			break;
 		}
 
 		return elementTable [row, col]; 
-	}
-
-	void Update(){
-		Debug.Log (lookUpElementMultiplier ("water", "earth"));
 	}
 }
