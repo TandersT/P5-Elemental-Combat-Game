@@ -43,8 +43,8 @@ public class Player : Character {
     }
 
     void OnCollisionEnter(Collision _collision) {
-        if (_collision.gameObject.tag == "Bullet")
-            changeHealth(-6);
+        if (_collision.gameObject.tag == "HealthItem")
+            changeHealth(_collision.gameObject.GetComponent<HealthItemScript>().healAmount);
     }
 
 }
