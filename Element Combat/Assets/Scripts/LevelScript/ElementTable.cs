@@ -11,10 +11,11 @@ public class ElementTable : MonoBehaviour {
 	public static float lookUpElementMultiplier(string attackingElement, string defendingElement){
 		strong = 1.0f + elementWeight;
 		weak = 1.0f - elementWeight;
+		uint row = 101;
+		uint col = 101;
 		float[,] elementTable = {{same, strong,weak},{weak,same,strong},{strong,weak,same,}};
 
 		switch(attackingElement){
-			int row;
 			case "fire": row = 0;
 			break;
 			case "earth": row = 1;
@@ -26,7 +27,6 @@ public class ElementTable : MonoBehaviour {
 		}
 
 		switch(defendingElement){
-			int col;
 			case "fire": col = 0;
 			break;
 			case "earth": col = 1;
