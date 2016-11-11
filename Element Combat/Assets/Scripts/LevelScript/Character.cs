@@ -12,7 +12,7 @@ public class Character : MonoBehaviour {
     protected float damage;
     [SerializeField]
     protected float movementSpeed;
-    protected string element;
+    public string element;
     protected Vector3 characterPosition;
     protected ShootProjectile bulletElement;
     [SerializeField]
@@ -22,6 +22,5 @@ public class Character : MonoBehaviour {
 
     protected void Start() {
         currentHealth = maxHealth;
-
     }
 }

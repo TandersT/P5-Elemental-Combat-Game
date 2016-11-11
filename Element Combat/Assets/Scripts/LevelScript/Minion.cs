@@ -8,6 +8,7 @@ public class Minion : Enemy {
 
 
 
+
     void meleeAttack(Collider ColliderPlayer, Collider ColliderMinion) {
 
     }
@@ -30,9 +31,10 @@ public class Minion : Enemy {
 
     void OnCollisionEnter(Collision _collision) {
         if (_collision.gameObject.tag == "Bullet"){
-            string elementAttacker = ShootProjectile.element;
+            string elementAttacker = _collision.gameObject.GetComponent<DestroyObject>().element;
             string element = "water";
-            Debug.Log(elementAttacker);
+            Debug.Log("Attack: " + elementAttacker);
+            Debug.Log("Def: " + element);
             float damageAttacker = 10;
             float elementMultiplier = ElementTable.lookUpElementMultiplier(elementAttacker, element);
             Debug.Log(elementMultiplier);

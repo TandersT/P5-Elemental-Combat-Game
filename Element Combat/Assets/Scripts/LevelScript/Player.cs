@@ -4,11 +4,17 @@ using System;
 using UnityEngine;
 
 public class Player : Character {
+
     private int playerID;
     private Vector3 facingDirection;
     public bool alive = true;
     //Movement test
     public float moveSpeed;
+
+    void Awake() {
+        element = "earth";
+        //Debug.Log("Attack: " + element);
+    }
 
     void Update() {
         //Movement test
