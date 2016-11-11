@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthItem : MonoBehaviour {
-    public int healthAmount;
-    // Use this for initialization
-    void Start () {
-		
+    [Range (0.0f,100.0f)]
+    public float maxHealAmount;
+    [Range (0.0f,100.0f)]
+    public float maxDropRate;
+
+	void dropHealthItem(uint currentLevel){
+		float dropRate = maxHealAmount / (healthItemDropRateWeight * level);
+		float healAmount = maxDropRate / (healthItemHealAmountWeight * level);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
     void remove() {
-
+    	// call this method when the healhpack is picked up
     }
 }
