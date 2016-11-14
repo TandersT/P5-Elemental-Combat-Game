@@ -4,20 +4,12 @@ using System;
 using UnityEngine;
 
 public class Character : MonoBehaviour {
-    [SerializeField]
-    protected float maxHealth;
-    [SerializeField]
-    public float currentHealth;
-    [SerializeField]
-    protected float damage;
-    [SerializeField]
-    protected float movementSpeed;
+    protected float maxHealth, movementSpeed;
+    public float currentHealth, baseDamage;    
     public string element;
     protected Vector3 characterPosition;
     protected ShootProjectile bulletElement;
-    [SerializeField]
     protected ElementTable elementTable;
-    [SerializeField]
     protected ShootProjectile shootProjectile;
 
     protected void Start() {

@@ -2,24 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minion : Enemy {
+public class Minion : Character {
     public Collider ColliderMinion;
     public Collider ColliderPlayer;
 
+    void meleeAttack(Collider ColliderPlayer, Collider ColliderMinion) {}
 
-
-
-    void meleeAttack(Collider ColliderPlayer, Collider ColliderMinion) {
-
-    }
-
-    void pathfinder(Vector3 Pos) {
-
-    }
+    void pathfinder(Vector3 Pos) {}
     
-    void findNearestPlayer(Vector3[] playerPositions) {
-
-    }
+    void findNearestPlayer(Vector3[] playerPositions) {}
 
     void hit(float damage) {
         currentHealth -= damage;
