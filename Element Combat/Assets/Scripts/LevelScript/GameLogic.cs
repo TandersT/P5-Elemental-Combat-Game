@@ -2,23 +2,38 @@
 using System.Collections;
 
 public class GameLogic : MonoBehaviour {
-	public uint initialMinionAmount, playerRespawnTime, numberOfPlayers, initialMonsterAmount, minionSpawnAmount, monsterSpawnAmount;
-	private uint playersAlive, enemiesAlive;
-	public uint currentLevel = 1;
-	public Vector3 enemySpawnPosition1, numberOfPlayer, enemySpawnPosition2, enemySpawnPosition3;
-    public Vector3[] playerPositions;
-    [Range(1,10)]
-	public float healthItemDropRateWeight;
+	public uint playerRespawnTime, numberOfPlayers,minionSpawnAmount, monsterSpawnAmount;
+	public static uint playersAlive, enemiesAlive;
+	public static uint currentLevel = 1;
+    public int numberOfPlayer;
 	[Range(1,10)]
-	public uint monsterAmountWeight;
-	[Range(1,10)]
-	public float healthItemHealAmountWeight;
+    public static float healthItemDropRateWeight = 1;
+    [Range(1, 10)]
+    public static float healthItemHealAmountWeight = 5;
+    [Range(1, 10)]
+    public uint monsterAmountWeight;
+    public GameObject MinionPrefab, MonsterPrefab, PlayerPrefab;
+    public GameObject[] EnemySpawnPos = new GameObject[3];
+    public GameObject[] PlayerSpawnPos = new GameObject[3];
+    public static bool SpawnMinions = true;
 
-	private void startGame(){
-		// what is this supposed to do?
-	}
+    void Awake() {
+        startLevel(currentLevel);
+    }
 
-	private void startLevel(uint currentLevel){
+
+    void Start() {
+
+    }
+
+    void Update() {
+        checkGameState(playersAlive, enemiesAlive);
+        if (Input.GetKeyDown("a")) {
+            endLevel();
+        }
+    }
+
+    private void startLevel(uint currentLevel){
 		spawnEnemies(minionSpawnAmount, monsterSpawnAmount, currentLevel);
 		spawnPlayers(numberOfPlayers);
 	}
@@ -26,42 +41,49 @@ public class GameLogic : MonoBehaviour {
 	private void spawnEnemies(uint minionSpawnAmount, uint monsterSpawnAmount, uint currentLevel){
 		minionSpawnAmount *= monsterAmountWeight * currentLevel;
 		monsterSpawnAmount *= monsterAmountWeight * currentLevel;
-		// choose where to spawn the enemies
-	}
+        for (int i = 0; i < minionSpawnAmount; i++) {
+            GameObject Temporary_Enemy_Handler;
+            int randomSpawnPos = Random.Range(0, EnemySpawnPos.Length);
+            Temporary_Enemy_Handler = Instantiate(MinionPrefab, EnemySpawnPos[randomSpawnPos].transform.position, EnemySpawnPos[randomSpawnPos].transform.rotation) as GameObject;
+            enemiesAlive++;
+        }
+        for (int i = 0; i < monsterSpawnAmount; i++) {
+            GameObject Temporary_Enemy_Handler;
+            int randomSpawnPos = Random.Range(0, EnemySpawnPos.Length);
+            Temporary_Enemy_Handler = Instantiate(MonsterPrefab, EnemySpawnPos[randomSpawnPos].transform.position, EnemySpawnPos[randomSpawnPos].transform.rotation) as GameObject;
+            enemiesAlive++;
+        }
+        
+    }
 
-	private void spawnPlayers(uint numberOfPlayers){
-		// choose where to spawn players
+    private void spawnPlayers(uint numberOfPlayers){
+        for (int i = 0; i < numberOfPlayers; i++) {
+            GameObject Temporary_Player_Handler;
+            Temporary_Player_Handler = Instantiate(PlayerPrefab, PlayerSpawnPos[i].transform.position, PlayerSpawnPos[i].transform.rotation) as GameObject;
+
+            //Instantiate
+            playersAlive++;
+        }
 	}	
 
 	private void checkGameState(uint playersAlive, uint enemiesAlive){
-
-		if(playersAlive == 0){
+        if (playersAlive == 0){
 			endLevel();
 			startLevel(currentLevel);
-		}
+        }
 
 		if(enemiesAlive == 0){
-			endLevel();
-			startLevel(currentLevel++);
-		}
+            endLevel();
+            startLevel(currentLevel++);
+        }
 	}
 	
 	private void endLevel(){
-		// destroy enemies
-		// destroy players
-	}
-	
-	// Use this for initialization
-	void Awake(){
-		startLevel (1);
-	}
-
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		checkGameState (playersAlive, enemiesAlive);
-	}
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
+            Destroy(enemy);
+        }
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
+            //Destroy(player);
+        }
+    }
 }

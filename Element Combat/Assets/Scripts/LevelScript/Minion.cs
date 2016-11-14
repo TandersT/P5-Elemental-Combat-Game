@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< Updated upstream
 public class Minion : Character {
     public Collider ColliderMinion;
     public Collider ColliderPlayer;
@@ -9,6 +10,17 @@ public class Minion : Character {
     void meleeAttack(Collider ColliderPlayer, Collider ColliderMinion) {}
 
     void pathfinder(Vector3 Pos) {}
+=======
+public class Minion : Enemy {
+
+    void Awake() {
+        
+    }
+
+    void pathfinder(Vector3 Pos) {
+
+    }
+>>>>>>> Stashed changes
     
     void findNearestPlayer(Vector3[] playerPositions) {}
 
@@ -16,6 +28,8 @@ public class Minion : Character {
         currentHealth -= damage;
         if (currentHealth <= 0.0f) {
             Destroy(gameObject);
+            gameObject.GetComponent<HealthItem>().dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemDropRateWeight, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
+            GameLogic.enemiesAlive--;
         }
         Debug.Log(gameObject.name + ": " + currentHealth);
     }
