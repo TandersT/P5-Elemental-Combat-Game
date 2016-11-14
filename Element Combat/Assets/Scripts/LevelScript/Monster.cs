@@ -13,12 +13,12 @@ public class Monster : Character {
         if (_collision.gameObject.tag == "Bullet"){
             
             // variables from the player
-            float baseDamage = _collision.gameObject.GetComponent<ProjectileScript>();
+            //float baseDamage = _collision.gameObject.GetComponent<ProjectileScript>().baseDamage;
             string attackerElement = _collision.gameObject.GetComponent<ProjectileScript>().element;
 
-            float damage1 = calculateDamage(attackerElement, element1);
-            float damage2 = calculateDamage(attackerElement, element2);
-            hit(damage1, damage2);
+            //float damage1 = calculateDamage(attackerElement, element1);
+            //float damage2 = calculateDamage(attackerElement, element2);
+            //hit(damage1, damage2);
         }
     } 
 
@@ -30,9 +30,9 @@ public class Monster : Character {
         if (healthElement1 <= 0.0f && healthElement2 <= 0.0f) Destroy(gameObject);
     }
 
-    private float calculateDamage(string attackerElement, string element){
-        float elementMultiplier = ElementTable.lookUpElementMultiplier(attackerElement, element);
-        float damage = _collision.gameObject.GetComponent<DestroyObject>.baseDamage * elementMultiplier1;
-        return damage;
+    //private float calculateDamage(string attackerElement, string element){
+        //float elementMultiplier = ElementTable.lookUpElementMultiplier(attackerElement, element);
+        //float damage = _collision.gameObject.GetComponent<DestroyObject>.baseDamage * elementMultiplier1;
+        //return damage;
     }
-}
+

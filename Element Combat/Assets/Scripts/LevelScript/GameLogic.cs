@@ -38,6 +38,15 @@ public class GameLogic : MonoBehaviour {
 		spawnPlayers(numberOfPlayers);
 	}
 
+    private string generateRandomElement() {
+        int rNumb = Random.Range(0, 2);
+        string[] rElement = new string[3];
+        string chosenElement;
+        rElement[0] = "fire"; rElement[1] = "water"; rElement[2] = "earth";
+        chosenElement = rElement[rNumb];
+        return chosenElement;
+    }
+
 	private void spawnEnemies(uint minionSpawnAmount, uint monsterSpawnAmount, uint currentLevel){
 		minionSpawnAmount *= monsterAmountWeight * currentLevel;
 		monsterSpawnAmount *= monsterAmountWeight * currentLevel;
@@ -45,12 +54,14 @@ public class GameLogic : MonoBehaviour {
             GameObject Temporary_Enemy_Handler;
             int randomSpawnPos = Random.Range(0, EnemySpawnPos.Length);
             Temporary_Enemy_Handler = Instantiate(MinionPrefab, EnemySpawnPos[randomSpawnPos].transform.position, EnemySpawnPos[randomSpawnPos].transform.rotation) as GameObject;
+            Temporary_Enemy_Handler.GetComponent<Minion>().element = generateRandomElement();
             enemiesAlive++;
         }
         for (int i = 0; i < monsterSpawnAmount; i++) {
             GameObject Temporary_Enemy_Handler;
             int randomSpawnPos = Random.Range(0, EnemySpawnPos.Length);
             Temporary_Enemy_Handler = Instantiate(MonsterPrefab, EnemySpawnPos[randomSpawnPos].transform.position, EnemySpawnPos[randomSpawnPos].transform.rotation) as GameObject;
+            Temporary_Enemy_Handler.GetComponent<Monster>().element = generateRandomElement();
             enemiesAlive++;
         }
         
@@ -83,7 +94,7 @@ public class GameLogic : MonoBehaviour {
             Destroy(enemy);
         }
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
-            //Destroy(player);
+            Destroy(player);
         }
     }
 }

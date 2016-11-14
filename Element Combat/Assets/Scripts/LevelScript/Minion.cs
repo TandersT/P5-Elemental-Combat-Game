@@ -2,27 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< Updated upstream
 public class Minion : Character {
-    public Collider ColliderMinion;
-    public Collider ColliderPlayer;
-
-    void meleeAttack(Collider ColliderPlayer, Collider ColliderMinion) {}
-
-    void pathfinder(Vector3 Pos) {}
-=======
-public class Minion : Enemy {
 
     void Awake() {
         
     }
-
-    void pathfinder(Vector3 Pos) {
-
-    }
->>>>>>> Stashed changes
-    
-    void findNearestPlayer(Vector3[] playerPositions) {}
 
     void hit(float damage) {
         currentHealth -= damage;
@@ -36,8 +20,7 @@ public class Minion : Enemy {
 
     void OnCollisionEnter(Collision _collision) {
         if (_collision.gameObject.tag == "Bullet"){
-            string elementAttacker = _collision.gameObject.GetComponent<DestroyObject>().element;
-            string element = "water";
+            string elementAttacker = _collision.gameObject.GetComponent<ProjectileScript>().element;
             Debug.Log("Attack: " + elementAttacker);
             Debug.Log("Def: " + element);
             float damageAttacker = 10;
