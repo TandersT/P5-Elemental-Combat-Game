@@ -8,7 +8,9 @@ public class Enemy : Character {
     private string element1 = "water";
     private string element2 = "fire";
     Collider _collision;
-    GameObject HealthItemPrefab;
+    [SerializeField]
+    protected GameObject HealthItemPrefab;
+
 
     protected void hit(float damage1, float damage2) {
         healthElement1 = healthElement1 - damage1 < 0.0f ? 0.0f : healthElement1 - damage1;    

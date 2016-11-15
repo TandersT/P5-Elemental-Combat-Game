@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour {
 	public uint playerRespawnTime, numberOfPlayers,minionSpawnAmount, monsterSpawnAmount;
@@ -9,7 +11,7 @@ public class GameLogic : MonoBehaviour {
 	[Range(1,10)]
     public static float healthItemDropRateWeight = 1;
     [Range(1, 10)]
-    public static float healthItemHealAmountWeight = 5;
+    public static float healthItemHealAmountWeight = 1;
     [Range(1, 10)]
     public uint monsterAmountWeight;
     public GameObject MinionPrefab, MonsterPrefab, PlayerPrefab;
@@ -17,11 +19,18 @@ public class GameLogic : MonoBehaviour {
     public GameObject[] PlayerSpawnPos = new GameObject[3];
     public static bool SpawnMinions = true;
     static public float healthItemBaseDropRate, healthItemBaseHealAmount;
+    [SerializeField]
+    private float HIDropRate, HIHealAmount;
+    private List<int> randomPos = new List<int>();
+
+    //UI
+    public Text levelText; 
 
     void Awake() {
         startLevel(currentLevel);
+        healthItemBaseDropRate = HIDropRate;
+        healthItemBaseHealAmount = HIHealAmount;
     }
-
 
     void Start() {
 
@@ -34,9 +43,14 @@ public class GameLogic : MonoBehaviour {
         }
     }
 
+    private void UIElements() {
+        levelText.text = "Level: " + currentLevel;
+    }
+
     private void startLevel(uint currentLevel){
 		spawnEnemies(minionSpawnAmount, monsterSpawnAmount, currentLevel);
 		spawnPlayers(numberOfPlayers);
+        UIElements();
 	}
 
     private string generateRandomElement() {
@@ -51,16 +65,19 @@ public class GameLogic : MonoBehaviour {
 	private void spawnEnemies(uint minionSpawnAmount, uint monsterSpawnAmount, uint currentLevel){
 		minionSpawnAmount *= monsterAmountWeight * currentLevel;
 		monsterSpawnAmount *= monsterAmountWeight * currentLevel;
+        for (int i = 0; i < EnemySpawnPos.Length; i++) {
+            randomPos.Add(i);
+        }
+        int randomSpawnPos = Random.Range(0, randomPos.Count);
+        randomPos.RemoveAt(randomSpawnPos);
         for (int i = 0; i < minionSpawnAmount; i++) {
             GameObject Temporary_Enemy_Handler;
-            int randomSpawnPos = Random.Range(0, EnemySpawnPos.Length);
-            Temporary_Enemy_Handler = Instantiate(MinionPrefab, EnemySpawnPos[randomSpawnPos].transform.position, EnemySpawnPos[randomSpawnPos].transform.rotation) as GameObject;
+            Temporary_Enemy_Handler = Instantiate(MinionPrefab, EnemySpawnPos[randomPos[i]].transform.position, EnemySpawnPos[randomPos[i]].transform.rotation) as GameObject;
             Temporary_Enemy_Handler.GetComponent<Minion>().element = generateRandomElement();
             enemiesAlive++;
         }
         for (int i = 0; i < monsterSpawnAmount; i++) {
             GameObject Temporary_Enemy_Handler;
-            int randomSpawnPos = Random.Range(0, EnemySpawnPos.Length);
             Temporary_Enemy_Handler = Instantiate(MonsterPrefab, EnemySpawnPos[randomSpawnPos].transform.position, EnemySpawnPos[randomSpawnPos].transform.rotation) as GameObject;
             Temporary_Enemy_Handler.GetComponent<Monster>().element = generateRandomElement();
             enemiesAlive++;
