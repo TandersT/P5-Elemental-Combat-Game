@@ -11,30 +11,34 @@ public class Enemy : Character {
     [SerializeField]
     protected GameObject HealthItemPrefab;
 
-    public Enemy(){
-            List<string> randomElements = new List<string> {"fire", "water", "earth"};
-            randomElements.RemoveAt(Random.Range(0,2));
-            element1 = randomElements[0];       
-            element2 = randomElements[1];
-        }
+    public Enemy(int randomNumber){
+        List<string> randomElements = new List<string> {"fire", "water", "earth"};
+        randomElements.RemoveAt(randomNumber);
+        element1 = randomElements[0];       
+        element2 = randomElements[1];
+    }
+
+    public Enemy(){a
+
+    }
 
     protected void hit(float damage1, float damage2) {
         healthElement1 = healthElement1 - damage1 < 0.0f ? 0.0f : healthElement1 - damage1;    
         healthElement2 = healthElement2 - damage2 < 0.0f ? 0.0f : healthElement2 - damage2;
 
         if (healthElement1 <= 0.0f && healthElement2 <= 0.0f){
-			dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemBaseDropRate, GameLogic.healthItemDropRateWeight, GameLogic.healthItemBaseHealAmount, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
- 			Destroy(gameObject);
-        	GameLogic.enemiesAlive--;
+            dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemBaseDropRate, GameLogic.healthItemDropRateWeight, GameLogic.healthItemBaseHealAmount, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
+            Destroy(gameObject);
+            GameLogic.enemiesAlive--;
         }
     }
 
     protected void hit(float damage) {
         currentHealth -= damage;
         if (currentHealth <= 0.0f) {
-			dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemBaseDropRate, GameLogic.healthItemDropRateWeight, GameLogic.healthItemBaseHealAmount, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
+            dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemBaseDropRate, GameLogic.healthItemDropRateWeight, GameLogic.healthItemBaseHealAmount, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
             Destroy(gameObject);
-		    GameLogic.enemiesAlive--;
+            GameLogic.enemiesAlive--;
         }
     }
 
