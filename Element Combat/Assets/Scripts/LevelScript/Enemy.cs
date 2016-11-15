@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : Character {
     private float healthElement1;
     private float healthElement2; 
     private string element1 = "water";
     private string element2 = "fire";
-    Collider _collision;
     [SerializeField]
     protected GameObject HealthItemPrefab;
+    //Healthbar slider
+    [SerializeField]
+    protected Slider healthSlider;
 
     public Enemy(int randomNumber){
         List<string> randomElements = new List<string> {"fire", "water", "earth"};
@@ -20,6 +23,12 @@ public class Enemy : Character {
 
     public Enemy(){
 
+    }
+
+    void Awake() {
+        healthSlider = gameObject.transform.Find("EnemyCanvas/EnemySlider").GetComponent<Slider>();
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = maxHealth;
     }
 
     protected void hit(float damage1, float damage2) {
@@ -35,11 +44,13 @@ public class Enemy : Character {
 
     protected void hit(float damage) {
         currentHealth -= damage;
+        element = "earth";
         if (currentHealth <= 0.0f) {
             dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemBaseDropRate, GameLogic.healthItemDropRateWeight, GameLogic.healthItemBaseHealAmount, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
             Destroy(gameObject);
             GameLogic.enemiesAlive--;
         }
+        healthSlider.value = currentHealth;
     }
 
     protected float calculateDamageTaken(string playerElement, float playerBaseDamage, string element){

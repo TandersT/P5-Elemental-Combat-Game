@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Minion : Enemy {
 
@@ -39,11 +40,7 @@ public class Minion : Enemy {
         if (_collision.gameObject.tag == "Bullet"){
             string elementAttacker = _collision.gameObject.GetComponent<ProjectileScript>().element;
             float damageAttacker = _collision.gameObject.GetComponent<ProjectileScript>().baseDamage;
-            Debug.Log("Attack: " + elementAttacker);
-            Debug.Log("Def: " + element);
-            float elementMultiplier = ElementTable.lookUpElementMultiplier(elementAttacker, element);
-            Debug.Log(elementMultiplier);
-	        float damage = damageAttacker * elementMultiplier;
+            float damage = calculateDamageTaken(elementAttacker, damageAttacker, element);
             hit(damage);
         } 
     }
