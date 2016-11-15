@@ -12,14 +12,11 @@ public class Enemy : Character {
     protected GameObject HealthItemPrefab;
 
     public Enemy(){
-        private string generateRandomElement() {
-            List<string> randomElements = new List<string> {"fire", "water", "earth"}; 
-            randomElements.Add(1)
-            randomElements.RemoveAt(Random.Range(0,2);
+            List<string> randomElements = new List<string> {"fire", "water", "earth"};
+            randomElements.RemoveAt(Random.Range(0,2));
             element1 = randomElements[0];       
             element2 = randomElements[1];
         }
-    }
 
     protected void hit(float damage1, float damage2) {
         healthElement1 = healthElement1 - damage1 < 0.0f ? 0.0f : healthElement1 - damage1;    

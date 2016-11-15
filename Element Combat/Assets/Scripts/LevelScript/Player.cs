@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : Character {
 
@@ -10,10 +11,12 @@ public class Player : Character {
     public bool alive = true;
     //Movement test
     public static bool charMove;
+    public Slider healthSlider;
 
     void Awake() {
         element = "earth";
-
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = maxHealth;
         //Debug.Log("Attack: " + element);
     }
 
@@ -37,6 +40,7 @@ public class Player : Character {
     }
 
     void changeHealth(float changeHealth) {
+        healthSlider.value = currentHealth;
         if (currentHealth + changeHealth > maxHealth) {
             currentHealth = maxHealth;
         } else if (currentHealth + changeHealth < 0.0f) {
