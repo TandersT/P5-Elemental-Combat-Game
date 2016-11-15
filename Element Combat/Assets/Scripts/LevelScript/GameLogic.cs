@@ -15,7 +15,7 @@ public class GameLogic : MonoBehaviour {
     [Range(1, 10)]
     public uint monsterAmountWeight;
     public GameObject MinionPrefab, MonsterPrefab, PlayerPrefab;
-    public GameObject[] EnemySpawnPos = new GameObject[3];
+    public GameObject[] EnemySpawnPos;
     public GameObject[] PlayerSpawnPos = new GameObject[3];
     public static bool SpawnMinions = true;
     static public float healthItemBaseDropRate, healthItemBaseHealAmount;

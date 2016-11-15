@@ -12,8 +12,10 @@ public class Player : Character {
     //Movement test
     public static bool charMove;
     public Slider healthSlider;
+    private string[] healthSliders = new string[] { "P1HealthSlider", "P2HealthSlider", "P3HealthSlider"};
 
     void Awake() {
+        healthSlider = GameObject.Find(healthSliders[playerID]).GetComponent<Slider>();
         element = "earth";
         healthSlider.maxValue = maxHealth;
         healthSlider.value = maxHealth;
@@ -40,7 +42,6 @@ public class Player : Character {
     }
 
     void changeHealth(float changeHealth) {
-        healthSlider.value = currentHealth;
         if (currentHealth + changeHealth > maxHealth) {
             currentHealth = maxHealth;
         } else if (currentHealth + changeHealth < 0.0f) {
@@ -50,6 +51,7 @@ public class Player : Character {
         } else {
             currentHealth += changeHealth;
         }
+        healthSlider.value = currentHealth;
         print("Player currentHealth: " + currentHealth);
     }
 
