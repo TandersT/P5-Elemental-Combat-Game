@@ -16,6 +16,7 @@ public class GameLogic : MonoBehaviour {
     public GameObject[] EnemySpawnPos = new GameObject[3];
     public GameObject[] PlayerSpawnPos = new GameObject[3];
     public static bool SpawnMinions = true;
+    static public float healthItemBaseDropRate, healthItemBaseHealAmount;
 
     void Awake() {
         startLevel(currentLevel);

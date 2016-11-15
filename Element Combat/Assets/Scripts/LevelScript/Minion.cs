@@ -21,6 +21,7 @@ public class Minion : Character {
     void OnCollisionEnter(Collision _collision) {
         if (_collision.gameObject.tag == "Bullet"){
             string elementAttacker = _collision.gameObject.GetComponent<ProjectileScript>().element;
+            float baseDamage = _collision.gameObject.GetComponent<ProjectileScript>().baseDamage;
             Debug.Log("Attack: " + elementAttacker);
             Debug.Log("Def: " + element);
             float damageAttacker = 10;
