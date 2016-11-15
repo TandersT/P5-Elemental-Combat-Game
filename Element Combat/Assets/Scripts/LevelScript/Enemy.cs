@@ -18,7 +18,7 @@ public class Enemy : Character {
         element2 = randomElements[1];
     }
 
-    public Enemy(){a
+    public Enemy(){
 
     }
 

@@ -24,7 +24,7 @@ public class AudioManager : MonoBehaviour {
     }
      //&& isWalking && grounded
     void FixedUpdate() {
-        if (Time.time > walkingCycle && Player.charMove) {
+        if (Time.time > walkingCycle) {
             walkingCycle = Time.time + walkingRate;
             walkingSound();
             number++;

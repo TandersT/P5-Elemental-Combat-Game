@@ -20,10 +20,9 @@ public class Minion : Enemy {
         pos = transform.position;
         foreach (GameObject playerPos in GameObject.FindGameObjectsWithTag("Player")) {
             dist = Vector3.Distance(pos, playerPos.transform.position);
-            if (dist > distPrev) {
+            
                 target = playerPos.transform.position;
-                Debug.Log ("Changed target");
-            }
+            
             distPrev = Vector3.Distance(pos, target);
         }
         //if (Time.time < walkTimer) {

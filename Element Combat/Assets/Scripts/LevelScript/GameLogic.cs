@@ -30,6 +30,7 @@ public class GameLogic : MonoBehaviour {
         startLevel(currentLevel);
         healthItemBaseDropRate = HIDropRate;
         healthItemBaseHealAmount = HIHealAmount;
+        //numbersofplayers set to playersconnected
     }
 
     void Start() {

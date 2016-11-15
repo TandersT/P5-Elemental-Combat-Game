@@ -13,7 +13,7 @@ public class ShootProjectile : MonoBehaviour {
     public GameObject Target; //Only relevant for enemies
     public float baseDamage = 10;
 
-    float fireRate = 0.5f;
+    float fireRate = 0.25f;
     float nextFire = 0.0f;
 
     void Update() {
