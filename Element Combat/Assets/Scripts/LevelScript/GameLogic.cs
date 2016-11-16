@@ -7,7 +7,6 @@ public class GameLogic : MonoBehaviour {
 	public uint playerRespawnTime, numberOfPlayers,minionSpawnAmount, monsterSpawnAmount;
 	public static uint playersAlive, enemiesAlive;
 	public static uint currentLevel = 1;
-    public int numberOfPlayer;
 	[Range(1,10)]
     public static float healthItemDropRateWeight = 1;
     [Range(1, 10)]
