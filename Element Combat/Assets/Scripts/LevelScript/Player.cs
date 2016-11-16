@@ -77,17 +77,25 @@ public class Player : Character {
     }
 
     void changeHealth(float changeHealth) {
-        if (currentHealth + changeHealth > maxHealth) {
+        // is it a health item?
+        if(currentHealth + changeHealth > currentHealth){
+            changeHealth = changeHealth * maxHealth / 100.0f;
+        }
+
+        currentHealth += changeHealth;
+
+        if (currentHealth > maxHealth) {
             currentHealth = maxHealth;
-        } else if (currentHealth + changeHealth < 0.0f) {
+        } 
+        else if(currentHealth < 0.0f) {
             currentHealth = 0.0f;
             alive = false;
             GameLogic.playersAlive--;
-        } else {
-            currentHealth += changeHealth;
+            }
         }
+
         healthSlider.value = currentHealth;
-        print("Player currentHealth: " + currentHealth);
+        print("Player currentHealth:" + currentHealth);
     }
 
     void OnCollisionEnter(Collision _collision) {
