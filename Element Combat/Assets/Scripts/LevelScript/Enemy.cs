@@ -53,6 +53,7 @@ public class Enemy : Character {
             Destroy(gameObject);
             GameLogic.enemiesAlive--;
         }
+        healthSlider.value = currentHealth;
     }
 
     protected float calculateDamageTaken(string playerElement, float playerBaseDamage, string element){
