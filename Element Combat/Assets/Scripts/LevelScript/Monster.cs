@@ -27,7 +27,9 @@ public class Monster : Enemy {
      private void searchAndDestroy(){
         float distanceToNearestPlayer = float.MaxValue;
         float distanceToPlayer;  
-        Vector3 nearestPlayer = Vector3.zero;  
+        Vector3 nearestPlayer = Vector3.zero; 
+        Vector3 position = gameObject.transform.position;
+ 
 
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
             distanceToPlayer = Vector3.Distance(position, player.transform.position);

@@ -4,17 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Minion : Enemy {
-    public GameObject targetObject;
-    int count = 0;
-    float walkTimer = 1;
-    float walkNext = 1;
-    float tempMovementspeed;
+    public float proximity = 100.0f;
+    public float nextUpdate = 0;
+    public float updateRate = 1.0f;
+    public float maxIdleTime = 5.0f;
+    private float nextStop = 0.0f;
 
     void Awake() {
+
     }
 
-    void FixedUpdate() {
-        searchAndDestroy();
+    void Update() {
+        if(Time.time > nextUpdate){
+            nextUpdate = Time.time + updateRate;
+            searchAndDestroy();
+        }
     }
 
     void OnCollisionEnter(Collision _collision) {
@@ -26,13 +30,13 @@ public class Minion : Enemy {
         } 
     }
 
-     private void searchAndDestroy(){
+    private void searchAndDestroy(){
         float distanceToNearestPlayer = float.MaxValue;
         float previousNearestFriend = float.MaxValue;
-        float distanceToPlayer, distanceToFriend;  
+        float distanceToPlayer;
+        float distanceToFriend = 0.0f;  
         Vector3 nearestPlayer = Vector3.zero;  
-        Vector3 nearestFriend;  
-        float proximity = 100.0f;
+        Vector3 nearestFriend = Vector3.zero;  
         Vector3 position = gameObject.transform.position;
 
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
@@ -44,25 +48,28 @@ public class Minion : Enemy {
         }
 
         if(distanceToNearestPlayer < proximity){
-            Debug.Log("speed is life");
+            Debug.Log("Walking towards nearest player.");
             transform.position = Vector3.MoveTowards(position, nearestPlayer, movementSpeed);    
         } 
         else{
+            float idle = Random.Range(0, maxIdleTime);
             foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")){
                 distanceToFriend = Vector3.Distance(position, enemy.transform.position);
                 if (distanceToFriend < previousNearestFriend) {
                     nearestFriend = enemy.transform.position;
-                    transform.position = Vector3.MoveTowards(position, nearestFriend, movementSpeed*2);
                 }
                 previousNearestFriend = Vector3.Distance(position, nearestPlayer);   
+            }
+            if(distanceToFriend < proximity){
+                Debug.Log("Walking towards nearest friend.");
+
+                if(Time.time > nextStop){
+                    nextStop = Time.time + idle;                
+                    transform.position = Vector3.MoveTowards(position, nearestFriend, 0.0f);   
+                }else{
+                    transform.position = Vector3.MoveTowards(position, nearestFriend, movementSpeed);   
+                }
            }
-        }
-        
+        }   
     }
-
-
-    // hvis player er i proximity, gå mod player, 
-    // ellers, hvis enemy er i proximity, gå mod nearest enemy, men kun indtil de er en hvis afstand fra hindanden.
-
-    // gå mod hvad der er tættest på, men hvis det er en friend, kun gå indtil en hvis afstand.
 }

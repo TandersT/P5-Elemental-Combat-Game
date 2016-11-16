@@ -33,7 +33,7 @@ public class Enemy : Character {
         healthElement2 = healthElement2 - damage2 < 0.0f ? 0.0f : healthElement2 - damage2;
 
         if (healthElement1 <= 0.0f && healthElement2 <= 0.0f){
-            dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemDropsForLevel, GameLogic.healthItemBaseHealAmount, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
+            dropHealthItem(gameObject.transform.position);
             Destroy(gameObject);
             GameLogic.enemiesAlive--;
         }
@@ -49,7 +49,7 @@ public class Enemy : Character {
 
         currentHealth -= damage;
         if (currentHealth <= 0.0f) {
-            dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemDropsForLevel, GameLogic.healthItemBaseHealAmount, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
+            dropHealthItem(gameObject.transform.position);
             Destroy(gameObject);
             GameLogic.enemiesAlive--;
         }
@@ -62,8 +62,8 @@ public class Enemy : Character {
         return damage;
     }
 
-    public void dropHealthItem(uint currentLevel, uint healthItemDropsForLevel, float healthItemBaseHealAmount, float healthItemHealAmountWeight, Vector3 dropPosition){
-        float healAmount = healthItemBaseHealAmount / (healthItemHealAmountWeight * currentLevel);
+    public void dropHealthItem( Vector3 dropPosition){
+        float healAmount = GameLogic.healthItemBaseHealAmount / (GameLogic.healthItemHealAmountWeight * GameLogic.currentLevel);
         float dropChance = getDropChance(GameLogic.healthItemDropsForLevel, GameLogic.healthItemsAlreadyDropped);
 
         if(dropChance >= Random.Range(0.0f, 100.0f)){
@@ -79,10 +79,5 @@ public class Enemy : Character {
         uint remainingHealthItemDrops = healthItemDropsForLevel - healthItemsAlreadyDropped;
         float dropChance = possibleDropsLeft / remainingHealthItemDrops;
         return dropChance;
-    }
-
-
-    private void move(Vector3 target){
-        transform.position = Vector3.MoveTowards(position, target, movementSpeed);
     }
 }

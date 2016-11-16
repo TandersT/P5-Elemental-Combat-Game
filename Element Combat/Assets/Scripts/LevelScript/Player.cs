@@ -54,11 +54,7 @@ public class Player : Character {
         targetVelocity = transform.TransformDirection(targetVelocity);
         targetVelocity *= movementSpeed;
 
-        if (targetVelocity == Vector3.zero) {
-            charMove = false;
-        } else {
-            charMove = true;
-        }
+        charMove = targetVelocity == Vector3.zero ? false : true;
 
         // Apply a force that attempts to reach our target velocity
         Vector3 velocity = playerRB.velocity;
@@ -67,8 +63,9 @@ public class Player : Character {
         velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
         velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
         velocityChange.y = 0;
-        if(charMove == true)
+        if(charMove == true){
             playerModelDirection.transform.rotation = Quaternion.LookRotation(velocity);
+        }
         playerRB.AddForce(velocityChange, ForceMode.VelocityChange);
         playerRB.AddForce(new Vector3(0, -gravity * playerRB.mass, 0));
     }
