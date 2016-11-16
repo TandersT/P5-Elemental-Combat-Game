@@ -22,10 +22,6 @@ public class Character : MonoBehaviour {
     protected float fireRate = 0.5f;
     protected float nextFire = 0.0f;
 
-    protected void Start() {
-        currentHealth = maxHealth;
-    }
-
 
     protected void rangedAttack(){   
         //The Bullet instantiation happens here.

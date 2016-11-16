@@ -29,7 +29,8 @@ public class Player : Character {
         playerRB.freezeRotation = true;
         playerRB.useGravity = false;
         //Debug.Log("Attack: " + element);
-    }
+        currentHealth = maxHealth;
+}
 
     void Update() {
         if (Input.GetKeyDown("space")) {

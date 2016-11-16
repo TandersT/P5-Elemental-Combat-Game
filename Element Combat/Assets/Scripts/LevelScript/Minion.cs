@@ -9,6 +9,11 @@ public class Minion : Enemy {
     public float updateRate = 1.0f;
     public float maxIdleTime = 5.0f;
     private float nextStop = 0.0f;
+    private bool playerOverride = false;
+
+
+    Vector3 nearestPlayer = Vector3.zero;
+    Vector3 nearestFriend = Vector3.zero;
 
     void Awake() {
 
@@ -27,49 +32,41 @@ public class Minion : Enemy {
             float damageAttacker = _collision.gameObject.GetComponent<ProjectileScript>().baseDamage;
             float damage = calculateDamageTaken(elementAttacker, damageAttacker, element);
             hit(damage);
-        } 
+        }
+        if (_collision.gameObject.tag == "Enemy") {
+            playerOverride = true;
+        }
     }
 
     private void searchAndDestroy(){
+        Vector3 position = gameObject.transform.position;
         float distanceToNearestPlayer = float.MaxValue;
         float previousNearestFriend = float.MaxValue;
         float distanceToPlayer;
-        float distanceToFriend = 0.0f;  
-        Vector3 nearestPlayer = Vector3.zero;  
-        Vector3 nearestFriend = Vector3.zero;  
-        Vector3 position = gameObject.transform.position;
+        float distanceToFriend;
 
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
             distanceToPlayer = Vector3.Distance(position, player.transform.position);
             if (distanceToPlayer < distanceToNearestPlayer) {
                 nearestPlayer = player.transform.position;
+                distanceToNearestPlayer = distanceToPlayer;
             }
-            distanceToNearestPlayer = Vector3.Distance(position, nearestPlayer);
         }
 
-        if(distanceToNearestPlayer < proximity){
+        if(distanceToNearestPlayer < proximity || playerOverride) {
             Debug.Log("Walking towards nearest player.");
             transform.position = Vector3.MoveTowards(position, nearestPlayer, movementSpeed);    
         } 
-        else{
+        else if (playerOverride == false){
             float idle = Random.Range(0, maxIdleTime);
             foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")){
                 distanceToFriend = Vector3.Distance(position, enemy.transform.position);
                 if (distanceToFriend < previousNearestFriend) {
                     nearestFriend = enemy.transform.position;
-                }
-                previousNearestFriend = Vector3.Distance(position, nearestPlayer);   
-            }
-            if(distanceToFriend < proximity){
-                Debug.Log("Walking towards nearest friend.");
-
-                if(Time.time > nextStop){
-                    nextStop = Time.time + idle;                
-                    transform.position = Vector3.MoveTowards(position, nearestFriend, 0.0f);   
-                }else{
-                    transform.position = Vector3.MoveTowards(position, nearestFriend, movementSpeed);   
+                    previousNearestFriend = distanceToFriend;
                 }
            }
+            transform.position = Vector3.MoveTowards(position, nearestFriend, movementSpeed);
         }   
     }
 }

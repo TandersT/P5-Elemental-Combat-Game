@@ -23,7 +23,9 @@ public class GameLogic : MonoBehaviour {
     private List<int> randomPos = new List<int>();
     public static uint healthItemDropsForLevel = 0;
     public static uint healthItemsAlreadyDropped = 0;
-    public uint startLevelHealthItemDrops; 
+    public uint startLevelHealthItemDrops;
+
+    private string element1, element2;
 
     //UI
     public Text levelText; 
@@ -56,13 +58,12 @@ public class GameLogic : MonoBehaviour {
         UIElements();
 	}
 
-    private string generateRandomElement() {
+    private void generateRandomElement() {
         int rNumb = Random.Range(0, 2);
-        string[] rElement = new string[3];
-        string chosenElement;
-        rElement[0] = "fire"; rElement[1] = "water"; rElement[2] = "earth";
-        chosenElement = rElement[rNumb];
-        return chosenElement;
+        List<string> randomElements = new List<string> { "fire", "water", "earth" };
+        randomElements.RemoveAt(rNumb);
+        element1 = randomElements[0];
+        element2 = randomElements[1];
     }
 
 	private void spawnEnemies(uint minionSpawnAmount, uint monsterSpawnAmount, uint currentLevel){
@@ -76,13 +77,22 @@ public class GameLogic : MonoBehaviour {
         for (int i = 0; i < minionSpawnAmount; i++) {
             GameObject Temporary_Enemy_Handler;
             Temporary_Enemy_Handler = Instantiate(MinionPrefab, EnemySpawnPos[randomPos[i]].transform.position, EnemySpawnPos[randomPos[i]].transform.rotation) as GameObject;
-            Temporary_Enemy_Handler.GetComponent<Minion>().element = generateRandomElement();
+            generateRandomElement();
+            if (Random.Range(0,1) == 0) {
+                Temporary_Enemy_Handler.GetComponent<Minion>().element = element1;
+            } else
+                Temporary_Enemy_Handler.GetComponent<Minion>().element = element2;
+
             enemiesAlive++;
         }
         for (int i = 0; i < monsterSpawnAmount; i++) {
             GameObject Temporary_Enemy_Handler;
             Temporary_Enemy_Handler = Instantiate(MonsterPrefab, EnemySpawnPos[randomSpawnPos].transform.position, EnemySpawnPos[randomSpawnPos].transform.rotation) as GameObject;
-            Temporary_Enemy_Handler.GetComponent<Monster>().element = generateRandomElement();
+            //Temporary_Enemy_Handler.Initialize();
+            //Fix later to use constructer instead
+            generateRandomElement();
+            Temporary_Enemy_Handler.GetComponent<Monster>().element1 = element1;
+            Temporary_Enemy_Handler.GetComponent<Monster>().element2 = element2;
             enemiesAlive++;
         }
         

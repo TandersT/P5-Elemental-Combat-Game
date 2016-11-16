@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Enemy : Character {
-    private float healthElement1;
-    private float healthElement2; 
+    private float healthElement1, healthElement2;
+    private float maxHealthElement1, maxHealthElement2; 
     private string element1, element2;
     Collider _collision;
     [SerializeField]
     protected GameObject HealthItemPrefab;
-    public float range = 10;
     [SerializeField]
-    protected Slider healthSlider;
+    protected Slider[] healthSlider;
+    protected static Enemy instance;
 
-    public Enemy(int randomNumber){
+    public void initialize(int randomNumber){
         List<string> randomElements = new List<string> {"fire", "water", "earth"};
         randomElements.RemoveAt(randomNumber);
         element1 = randomElements[0];       
@@ -26,25 +26,43 @@ public class Enemy : Character {
     }
 
      void Awake() {
+
+    }
+    protected void Start() {
+        currentHealth = maxHealth;
+        healthElement1 = maxHealth;
+        healthElement2 = maxHealth;
     }
 
     protected void hit(float damage1, float damage2) {
-        healthElement1 = healthElement1 - damage1 < 0.0f ? 0.0f : healthElement1 - damage1;    
+        if (healthElement1 == maxHealth && healthElement2 == maxHealth) {
+            healthSlider = GetComponentsInChildren<Slider>();
+            healthSlider[0].maxValue = maxHealth;
+            healthSlider[0].value = maxHealth;
+            healthSlider[1].maxValue = maxHealth;
+            healthSlider[1].value = maxHealth;
+        }
+
+        healthElement1 -= damage1;
+        healthElement2 -= damage2;
+
+        healthElement1 = healthElement1 - damage1 < 0.0f ? 0.0f : healthElement1 - damage1;
         healthElement2 = healthElement2 - damage2 < 0.0f ? 0.0f : healthElement2 - damage2;
 
-        if (healthElement1 <= 0.0f && healthElement2 <= 0.0f){
+        if (healthElement1 <= 0.0f && healthElement2 <= 0.0f) {
             dropHealthItem(gameObject.transform.position);
             Destroy(gameObject);
             GameLogic.enemiesAlive--;
         }
-        healthSlider.value = currentHealth;
+        healthSlider[0].value = healthElement1;
+        healthSlider[1].value = healthElement2;
     }
 
     protected void hit(float damage) {
         if (currentHealth == maxHealth) {
-            healthSlider = gameObject.GetComponentInChildren<Slider>();
-            healthSlider.maxValue = maxHealth;
-            healthSlider.value = maxHealth;
+            healthSlider = GetComponentsInChildren<Slider>();
+            healthSlider[0].maxValue = maxHealth;
+            healthSlider[0].value = maxHealth;
     }
 
         currentHealth -= damage;
@@ -53,7 +71,7 @@ public class Enemy : Character {
             Destroy(gameObject);
             GameLogic.enemiesAlive--;
         }
-        healthSlider.value = currentHealth;
+        healthSlider[0].value = currentHealth;
     }
 
     protected float calculateDamageTaken(string playerElement, float playerBaseDamage, string element){
