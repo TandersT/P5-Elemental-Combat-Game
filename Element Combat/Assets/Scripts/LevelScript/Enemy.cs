@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Enemy : Character {
     private float healthElement1;
     private float healthElement2; 
-    private string element1 = "water";
-    private string element2 = "fire";
+    private string element1, element2;
+    Collider _collision;
     [SerializeField]
     protected GameObject HealthItemPrefab;
-    //Healthbar slider
+    public float range = 10;
     [SerializeField]
     protected Slider healthSlider;
 
@@ -22,13 +22,10 @@ public class Enemy : Character {
     }
 
     public Enemy(){
-
+        
     }
 
-    void Awake() {
-        healthSlider = gameObject.transform.Find("EnemyCanvas/EnemySlider").GetComponent<Slider>();
-        healthSlider.maxValue = maxHealth;
-        healthSlider.value = maxHealth;
+     void Awake() {
     }
 
     protected void hit(float damage1, float damage2) {
@@ -40,17 +37,22 @@ public class Enemy : Character {
             Destroy(gameObject);
             GameLogic.enemiesAlive--;
         }
+        healthSlider.value = currentHealth;
     }
 
     protected void hit(float damage) {
+        if (currentHealth == maxHealth) {
+            healthSlider = gameObject.GetComponentInChildren<Slider>();
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = maxHealth;
+    }
+
         currentHealth -= damage;
-        element = "earth";
         if (currentHealth <= 0.0f) {
             dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemBaseDropRate, GameLogic.healthItemDropRateWeight, GameLogic.healthItemBaseHealAmount, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
             Destroy(gameObject);
             GameLogic.enemiesAlive--;
         }
-        healthSlider.value = currentHealth;
     }
 
     protected float calculateDamageTaken(string playerElement, float playerBaseDamage, string element){
@@ -68,5 +70,10 @@ public class Enemy : Character {
             Temporary_Health_Item = Instantiate(HealthItemPrefab, dropPosition, Quaternion.identity) as GameObject;
             Temporary_Health_Item.GetComponent<HealthItemScript>().healAmount = healAmount;
         }
+    }
+
+
+    private void move(Vector3 target){
+        transform.position = Vector3.MoveTowards(position, target, movementSpeed);
     }
 }
