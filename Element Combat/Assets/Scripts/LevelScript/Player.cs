@@ -72,6 +72,7 @@ public class Player : Character {
         playerRB.AddForce(velocityChange, ForceMode.VelocityChange);
         playerRB.AddForce(new Vector3(0, -gravity * playerRB.mass, 0));
     }
+
     void PlayerShoot() {
 
     }
@@ -91,11 +92,9 @@ public class Player : Character {
             currentHealth = 0.0f;
             alive = false;
             GameLogic.playersAlive--;
-            }
         }
 
         healthSlider.value = currentHealth;
-        print("Player currentHealth:" + currentHealth);
     }
 
     void OnCollisionEnter(Collision _collision) {

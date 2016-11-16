@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : Enemy {
-    private float healthElement1;
-    private float healthElement2; 
+public class Monster : Enemy { 
     private string element1 = "water";
     private string element2 = "fire";
     public float range = 10.0f;

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -62,5 +62,7 @@ public class Minion : Enemy {
 
 
     // hvis player er i proximity, gå mod player, 
-    // ellers gå mod nearest enemy.
+    // ellers, hvis enemy er i proximity, gå mod nearest enemy, men kun indtil de er en hvis afstand fra hindanden.
+
+    // gå mod hvad der er tættest på, men hvis det er en friend, kun gå indtil en hvis afstand.
 }

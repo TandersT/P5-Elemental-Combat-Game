@@ -18,18 +18,18 @@ public class GameLogic : MonoBehaviour {
     public GameObject[] EnemySpawnPos;
     public GameObject[] PlayerSpawnPos = new GameObject[3];
     public static bool SpawnMinions = true;
-    static public float healthItemBaseDropRate, healthItemBaseHealAmount;
+    static public float healthItemBaseHealAmount;
     [SerializeField]
-    private float HIDropRate, HIHealAmount;
     private List<int> randomPos = new List<int>();
+    public static uint healthItemDropsForLevel = 0;
+    public static uint healthItemsAlreadyDropped = 0;
+    public uint startLevelHealthItemDrops; 
 
     //UI
     public Text levelText; 
 
     void Awake() {
         startLevel(currentLevel);
-        healthItemBaseDropRate = HIDropRate;
-        healthItemBaseHealAmount = HIHealAmount;
         //numbersofplayers set to playersconnected
     }
 
@@ -49,6 +49,8 @@ public class GameLogic : MonoBehaviour {
     }
 
     private void startLevel(uint currentLevel){
+        healthItemDropsForLevel = startLevelHealthItemDrops - currentLevel;
+        healthItemsAlreadyDropped = 0;
 		spawnEnemies(minionSpawnAmount, monsterSpawnAmount, currentLevel);
 		spawnPlayers(numberOfPlayers);
         UIElements();

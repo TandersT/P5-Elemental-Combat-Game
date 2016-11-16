@@ -33,7 +33,7 @@ public class Enemy : Character {
         healthElement2 = healthElement2 - damage2 < 0.0f ? 0.0f : healthElement2 - damage2;
 
         if (healthElement1 <= 0.0f && healthElement2 <= 0.0f){
-            dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemBaseDropRate, GameLogic.healthItemDropRateWeight, GameLogic.healthItemBaseHealAmount, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
+            dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemDropsForLevel, GameLogic.healthItemBaseHealAmount, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
             Destroy(gameObject);
             GameLogic.enemiesAlive--;
         }
@@ -49,7 +49,7 @@ public class Enemy : Character {
 
         currentHealth -= damage;
         if (currentHealth <= 0.0f) {
-            dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemBaseDropRate, GameLogic.healthItemDropRateWeight, GameLogic.healthItemBaseHealAmount, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
+            dropHealthItem(GameLogic.currentLevel, GameLogic.healthItemDropsForLevel, GameLogic.healthItemBaseHealAmount, GameLogic.healthItemHealAmountWeight, gameObject.transform.position);
             Destroy(gameObject);
             GameLogic.enemiesAlive--;
         }
@@ -62,15 +62,23 @@ public class Enemy : Character {
         return damage;
     }
 
-    public void dropHealthItem(uint currentLevel, float healthItemBaseDropRate, float healthItemDropRateWeight, float healthItemBaseHealAmount, float healthItemHealAmountWeight, Vector3 dropPosition){
-        float dropRate = healthItemBaseDropRate / (healthItemDropRateWeight * currentLevel);
+    public void dropHealthItem(uint currentLevel, uint healthItemDropsForLevel, float healthItemBaseHealAmount, float healthItemHealAmountWeight, Vector3 dropPosition){
         float healAmount = healthItemBaseHealAmount / (healthItemHealAmountWeight * currentLevel);
+        float dropChance = getDropChance(GameLogic.healthItemDropsForLevel, GameLogic.healthItemsAlreadyDropped);
 
-        if(dropRate >= Random.Range(0.0f, 100.0f)){
+        if(dropChance >= Random.Range(0.0f, 100.0f)){
             GameObject Temporary_Health_Item;
             Temporary_Health_Item = Instantiate(HealthItemPrefab, dropPosition, Quaternion.identity) as GameObject;
             Temporary_Health_Item.GetComponent<HealthItemScript>().healAmount = healAmount;
+            float healthItemsAlreadyDropped = GameLogic.healthItemsAlreadyDropped;
         }
+    }
+
+    private float getDropChance(uint healthItemDropsForLevel, uint healthItemsAlreadyDropped){
+        uint possibleDropsLeft = GameLogic.enemiesAlive;
+        uint remainingHealthItemDrops = healthItemDropsForLevel - healthItemsAlreadyDropped;
+        float dropChance = possibleDropsLeft / remainingHealthItemDrops;
+        return dropChance;
     }
 
 
