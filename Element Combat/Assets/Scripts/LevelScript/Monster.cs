@@ -7,6 +7,7 @@ public class Monster : Enemy {
     private float healthElement2; 
     private string element1 = "water";
     private string element2 = "fire";
+    public float range = 10.0f;
     Collider _collision;
 
     void OnCollisionEnter(Collision _collision) {
@@ -22,22 +23,23 @@ public class Monster : Enemy {
     } 
 
      private void searchAndDestroy(){
-        Vector3 distancePrevious = 0;
-        Vector3 distance;  
-        Vector3 target;  
+        float distanceToNearestPlayer = 99999.9f;
+        float distanceToPlayer;  
+        Vector3 nearestPlayer = Vector3.zero;  
 
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
-            distance = Vector3.Distance(position, player.transform.position);
-            if (distance < distancePrevious) {
-                target = player.transform.position;
+            distanceToPlayer = Vector3.Distance(position, player.transform.position);
+            if (distanceToPlayer < distanceToNearestPlayer) {
+                nearestPlayer = player.transform.position;
             }
-            distancePrevious = Vector3.Distance(position, target);
-        }
-        
-        distance > range ? move(target) : rangedAttack();
-    }
+            distanceToNearestPlayer = Vector3.Distance(position, nearestPlayer);
+        }        
 
-    private void move(Vector3 target){
-        transform.position = Vector3.MoveTowards(position, target, movementSpeed);
+        if(distanceToNearestPlayer > range){
+            transform.position = Vector3.MoveTowards(position, nearestPlayer, movementSpeed);
+        }
+        else{
+            rangedAttack();
+        }
     }
 }

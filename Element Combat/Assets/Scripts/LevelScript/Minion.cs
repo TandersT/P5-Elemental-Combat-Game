@@ -4,36 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Minion : Enemy {
-
-    Vector3 pos;
-    Vector3 target;
     public GameObject targetObject;
     int count = 0;
-    float distPrev, dist;
     float walkTimer = 1;
     float walkNext = 1;
     float tempMovementspeed;
 
     void Awake() {
-    }
-
-    void Update() {
-        pos = transform.position;
-        foreach (GameObject playerPos in GameObject.FindGameObjectsWithTag("Player")) {
-            dist = Vector3.Distance(pos, playerPos.transform.position);
-            
-                target = playerPos.transform.position;
-            
-            distPrev = Vector3.Distance(pos, target);
-        }
-        //if (Time.time < walkTimer) {
-        //    walkTimer = Time.time + walkNext;
-        //    tempMovementspeed = movementSpeed;
-        //    movementSpeed = 0;
-        //} else
-        //    movementSpeed = tempMovementspeed;
-
-        transform.position = Vector3.MoveTowards(pos, target, movementSpeed);
     }
 
     void OnCollisionEnter(Collision _collision) {
@@ -46,30 +23,32 @@ public class Minion : Enemy {
     }
 
      private void searchAndDestroy(){
-        Vector3 previousNearestPlayer = 9999999;
-        Vector3 previousNearestFriend = 9999999;
+        float distanceToNearestPlayer = 9999999.9f;
+        float previousNearestFriend = 9999999.9f;
         float distanceToPlayer, distanceToFriend;  
-        Vector3 nearestPlayer, nearestFriend;  
+        Vector3 nearestPlayer = Vector3.zero;  
+        Vector3 nearestFriend;  
         float proximity = 10.0f;
+        Vector3 position = gameObject.transform.position;
 
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
             distanceToPlayer = Vector3.Distance(position, player.transform.position);
-            if (distanceToPlayer < previousNearestPlayer) {
+            if (distanceToPlayer < distanceToNearestPlayer) {
                 nearestPlayer = player.transform.position;
             }
-            previousNearestPlayer = Vector3.Distance(position, nearestPlayer);
+            distanceToNearestPlayer = Vector3.Distance(position, nearestPlayer);
         }
 
-        if(target > proximity){
-            transform.position = Vector3.MoveTowards(position, target, movementSpeed);    
+        if(distanceToNearestPlayer > proximity){
+            transform.position = Vector3.MoveTowards(position, nearestPlayer, movementSpeed);    
         } 
         else{
             foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")){
-                distance = Vector3.Distance(position, player.transform.position);
-                if (distance < distancePrevious) {
-                    nearestFriend = player.transform.position;
+                distanceToFriend = Vector3.Distance(position, enemy.transform.position);
+                if (distanceToFriend < previousNearestFriend) {
+                    nearestFriend = enemy.transform.position;
                 }
-                previousNearestFriend = Vector3.Distance(position, target);   
+                previousNearestFriend = Vector3.Distance(position, nearestPlayer);   
             }
         }
         
