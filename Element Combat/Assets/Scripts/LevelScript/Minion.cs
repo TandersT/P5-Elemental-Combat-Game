@@ -13,6 +13,10 @@ public class Minion : Enemy {
     void Awake() {
     }
 
+    void FixedUpdate() {
+        searchAndDestroy();
+    }
+
     void OnCollisionEnter(Collision _collision) {
         if (_collision.gameObject.tag == "Bullet"){
             string elementAttacker = _collision.gameObject.GetComponent<ProjectileScript>().element;
@@ -23,12 +27,12 @@ public class Minion : Enemy {
     }
 
      private void searchAndDestroy(){
-        float distanceToNearestPlayer = 9999999.9f;
-        float previousNearestFriend = 9999999.9f;
+        float distanceToNearestPlayer = float.MaxValue;
+        float previousNearestFriend = float.MaxValue;
         float distanceToPlayer, distanceToFriend;  
         Vector3 nearestPlayer = Vector3.zero;  
         Vector3 nearestFriend;  
-        float proximity = 10.0f;
+        float proximity = 100.0f;
         Vector3 position = gameObject.transform.position;
 
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
@@ -39,7 +43,8 @@ public class Minion : Enemy {
             distanceToNearestPlayer = Vector3.Distance(position, nearestPlayer);
         }
 
-        if(distanceToNearestPlayer > proximity){
+        if(distanceToNearestPlayer < proximity){
+            Debug.Log("speed is life");
             transform.position = Vector3.MoveTowards(position, nearestPlayer, movementSpeed);    
         } 
         else{
@@ -47,9 +52,10 @@ public class Minion : Enemy {
                 distanceToFriend = Vector3.Distance(position, enemy.transform.position);
                 if (distanceToFriend < previousNearestFriend) {
                     nearestFriend = enemy.transform.position;
+                    transform.position = Vector3.MoveTowards(position, nearestFriend, movementSpeed*2);
                 }
                 previousNearestFriend = Vector3.Distance(position, nearestPlayer);   
-            }
+           }
         }
         
     }

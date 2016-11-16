@@ -10,6 +10,10 @@ public class Monster : Enemy {
     public float range = 10.0f;
     Collider _collision;
 
+    void FixedUpdate() {
+        searchAndDestroy();
+    }
+
     void OnCollisionEnter(Collision _collision) {
         if (_collision.gameObject.tag == "Bullet"){
             
@@ -23,7 +27,7 @@ public class Monster : Enemy {
     } 
 
      private void searchAndDestroy(){
-        float distanceToNearestPlayer = 99999.9f;
+        float distanceToNearestPlayer = float.MaxValue;
         float distanceToPlayer;  
         Vector3 nearestPlayer = Vector3.zero;  
 

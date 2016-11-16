@@ -32,7 +32,9 @@ public class Player : Character {
     }
 
     void Update() {
-
+        if (Input.GetKeyDown("space")) {
+            rangedAttack();
+        }
         //Needs to be set true when walking occours
     }
 
