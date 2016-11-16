@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Player : Character {
 
     private int playerID;
-    private Vector3 facingDirection;
+    [SerializeField]
     private Rigidbody playerRB;
     public bool alive = true;
     //Movement test
@@ -17,10 +17,12 @@ public class Player : Character {
     private string[] healthSliders = new string[] { "P1HealthSlider", "P2HealthSlider", "P3HealthSlider"};
     public float gravity = 10.0f;
     public float maxVelocityChange = 10.0f;
+    public GameObject playerModelDirection;
 
     void Awake() {
         playerRB = GetComponent<Rigidbody>();
         healthSlider = GameObject.Find(healthSliders[playerID]).GetComponent<Slider>();
+
         element = "earth";
         healthSlider.maxValue = maxHealth;
         healthSlider.value = maxHealth;
@@ -30,9 +32,7 @@ public class Player : Character {
     }
 
     void Update() {
-        //Movement test
-        transform.Translate(0f, 0f, movementSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
-        transform.Rotate(0f, movementSpeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0f);
+
         //Needs to be set true when walking occours
     }
 
@@ -65,11 +65,10 @@ public class Player : Character {
         velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
         velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
         velocityChange.y = 0;
+        if(charMove == true)
+            playerModelDirection.transform.rotation = Quaternion.LookRotation(velocity);
         playerRB.AddForce(velocityChange, ForceMode.VelocityChange);
-
         playerRB.AddForce(new Vector3(0, -gravity * playerRB.mass, 0));
-
-
     }
     void PlayerShoot() {
 
