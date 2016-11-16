@@ -20,4 +20,24 @@ public class Monster : Enemy {
             hit(damage1, damage2);
         }
     } 
+
+     private void searchAndDestroy(){
+        Vector3 distancePrevious = 0;
+        Vector3 distance;  
+        Vector3 target;  
+
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
+            distance = Vector3.Distance(position, player.transform.position);
+            if (distance < distancePrevious) {
+                target = player.transform.position;
+            }
+            distancePrevious = Vector3.Distance(position, target);
+        }
+        
+        distance > range ? move(target) : rangedAttack();
+    }
+
+    private void move(Vector3 target){
+        transform.position = Vector3.MoveTowards(position, target, movementSpeed);
+    }
 }

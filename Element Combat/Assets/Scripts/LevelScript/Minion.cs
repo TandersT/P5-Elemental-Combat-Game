@@ -45,4 +45,37 @@ public class Minion : Enemy {
         } 
     }
 
+     private void searchAndDestroy(){
+        Vector3 previousNearestPlayer = 9999999;
+        Vector3 previousNearestFriend = 9999999;
+        float distanceToPlayer, distanceToFriend;  
+        Vector3 nearestPlayer, nearestFriend;  
+        float proximity = 10.0f;
+
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
+            distanceToPlayer = Vector3.Distance(position, player.transform.position);
+            if (distanceToPlayer < previousNearestPlayer) {
+                nearestPlayer = player.transform.position;
+            }
+            previousNearestPlayer = Vector3.Distance(position, nearestPlayer);
+        }
+
+        if(target > proximity){
+            transform.position = Vector3.MoveTowards(position, target, movementSpeed);    
+        } 
+        else{
+            foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")){
+                distance = Vector3.Distance(position, player.transform.position);
+                if (distance < distancePrevious) {
+                    nearestFriend = player.transform.position;
+                }
+                previousNearestFriend = Vector3.Distance(position, target);   
+            }
+        }
+        
+    }
+
+
+    // hvis player er i proximity, gå mod player, 
+    // ellers gå mod nearest enemy.
 }
