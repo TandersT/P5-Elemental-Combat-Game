@@ -13,6 +13,12 @@ public class Enemy : Character {
     [SerializeField]
     protected Slider[] healthSlider;
     protected static Enemy instance;
+    protected bool enemyMove;
+    private Rigidbody enemyRB;
+    public float maxVelocityChange = 10.0f;
+    public float gravity = 10.0f;
+    [SerializeField]
+    protected GameObject ModelDirection;
 
     public void initialize(int randomNumber){
         List<string> randomElements = new List<string> {"fire", "water", "earth"};
@@ -26,12 +32,18 @@ public class Enemy : Character {
     }
 
      void Awake() {
-
+        enemyRB = GetComponent<Rigidbody>();
     }
     protected void Start() {
         currentHealth = maxHealth;
         healthElement1 = maxHealth;
         healthElement2 = maxHealth;
+    }
+
+    protected void EnemyMovement(Vector3 playerPos) {
+        enemyMove = enemyRB.IsSleeping() ? false : true;
+            ModelDirection.transform.LookAt(playerPos);
+            ModelDirection.transform.Rotate(new Vector3(0, 0, 0), Space.Self);
     }
 
     protected void hit(float damage1, float damage2) {

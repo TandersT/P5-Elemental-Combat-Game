@@ -5,7 +5,7 @@ using UnityEngine;
 public class Monster : Enemy {
     public string element1;
     public string element2;
-    public float range = 10.0f;
+    public float range = 100.0f;
     Vector3 nearestPlayer = Vector3.zero;
 
     void FixedUpdate() {
@@ -41,5 +41,6 @@ public class Monster : Enemy {
         else{
             rangedAttack();
         }
+        EnemyMovement(nearestPlayer);
     }
 }

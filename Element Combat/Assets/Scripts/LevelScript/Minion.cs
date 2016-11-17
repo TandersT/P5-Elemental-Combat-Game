@@ -22,8 +22,9 @@ public class Minion : Enemy {
     void Update() {
         if(Time.time > nextUpdate){
             nextUpdate = Time.time + updateRate;
-            searchAndDestroy();
+            
         }
+        searchAndDestroy();
     }
 
     void OnCollisionEnter(Collision _collision) {
@@ -54,8 +55,8 @@ public class Minion : Enemy {
         }
 
         if(distanceToNearestPlayer < proximity || playerOverride) {
-            Debug.Log("Walking towards nearest player.");
-            transform.position = Vector3.MoveTowards(position, nearestPlayer, movementSpeed);    
+            Vector3 targetPos = Vector3.MoveTowards(position, nearestPlayer, movementSpeed);
+            EnemyMovement(nearestPlayer);
         } 
         else if (playerOverride == false){
             float idle = Random.Range(0, maxIdleTime);
