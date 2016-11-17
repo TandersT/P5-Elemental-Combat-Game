@@ -22,6 +22,8 @@ public class Character : MonoBehaviour {
     protected float fireRate = 0.5f;
     protected float nextFire = 0.0f;
 
+    Vector3 nearestPlayer = Vector3.zero;
+    float previousNearestPlayer = float.MaxValue;
 
     protected void rangedAttack(){   
         //The Bullet instantiation happens here.
@@ -38,10 +40,20 @@ public class Character : MonoBehaviour {
             ProjectileRigidBody.AddRelativeForce(transform.up * force);
             //ProjectileRigidBody.AddRelativeForce(Owner.transform.position * force);
         } else if(Owner.gameObject.tag == "Enemy") {
+            Vector3 position = gameObject.transform.position;
             Projectile.GetComponent<ProjectileScript>().element = Owner.GetComponent<Monster>().element;
+            foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Player")) {
+                float distanceToPlayer = Vector3.Distance(position, enemy.transform.position);
+                if (distanceToPlayer < previousNearestPlayer) {
+                    nearestPlayer = Target.transform.position;
+                    previousNearestPlayer = distanceToPlayer;
+                }
+            }
+
             Rigidbody ProjectileRigidBody;
             ProjectileRigidBody = Projectile.GetComponent<Rigidbody>();
             Projectile.transform.Rotate(Vector3.left * 90);
+            Quaternion.LookRotation(nearestPlayer - transform.position, Vector3.up);
             ProjectileRigidBody.AddRelativeForce(Target.transform.position * force);
         }   
 

@@ -100,10 +100,12 @@ public class Player : Character {
             changeHealth(_collision.gameObject.GetComponent<HealthItemScript>().healAmount);
         }
         if (_collision.gameObject.tag == "Enemy") {
-            changeHealth(-_collision.gameObject.GetComponent<Minion>().baseDamage);
-            charHit = true;
-            Destroy(_collision.gameObject);
-            GameLogic.enemiesAlive--;
+            if (_collision.gameObject.GetComponent<Minion>() != null) {
+                changeHealth(-_collision.gameObject.GetComponent<Minion>().baseDamage);
+                charHit = true;
+                Destroy(_collision.gameObject);
+                GameLogic.enemiesAlive--;
+            }
         } else
             charHit = false;
     }
