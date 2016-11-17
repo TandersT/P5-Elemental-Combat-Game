@@ -22,7 +22,7 @@ public class Player : Character {
     void Awake() {
         playerRB = GetComponent<Rigidbody>();
         healthSlider = GameObject.Find(healthSliders[playerID]).GetComponent<Slider>();
-
+        alive = true;
         element = "earth";
         healthSlider.maxValue = maxHealth;
         healthSlider.value = maxHealth;
@@ -86,12 +86,17 @@ public class Player : Character {
         if (currentHealth > maxHealth) {
             currentHealth = maxHealth;
         } 
-        else if(currentHealth < 0.0f) {
+        else if(currentHealth <= 0.0f) {
             currentHealth = 0.0f;
             alive = false;
-            GameLogic.playersAlive--;
+            if (GameLogic.playersAlive > 0 && GameLogic.playersAlive < 10) {
+                GameLogic.playersAlive--;
+            } else {
+                GameLogic.playersAlive = 0;
+            }
+            
+            Debug.Log("Players: " + GameLogic.playersAlive);
         }
-
         healthSlider.value = currentHealth;
     }
 
@@ -108,5 +113,15 @@ public class Player : Character {
             }
         } else
             charHit = false;
-    }
+        if (_collision.gameObject.tag == "Bullet") {
+            string elementAttacker1 = _collision.gameObject.GetComponent<ProjectileScript>().element;
+                string elementAttacker2 = _collision.gameObject.GetComponent<ProjectileScript>().element2;
+            float damageAttacker = _collision.gameObject.GetComponent<ProjectileScript>().baseDamage;
+            float damage1 = calculateDamageTaken(elementAttacker1, damageAttacker, element);
+            float damage2 = calculateDamageTaken(elementAttacker2, damageAttacker, element);
+                changeHealth(-damage1);
+                changeHealth(-damage2);
+            charHit = true;
+            }
+        }
 }

@@ -9,7 +9,7 @@ public class Minion : Enemy {
     public float updateRate = 1.0f;
     public float maxIdleTime = 5.0f;
     private float nextStop = 0.0f;
-    private bool playerOverride = false;
+    public bool playerOverride = false;
 
 
     Vector3 nearestPlayer = Vector3.zero;
@@ -19,11 +19,7 @@ public class Minion : Enemy {
 
     }
 
-    void Update() {
-        if(Time.time > nextUpdate){
-            nextUpdate = Time.time + updateRate;
-            
-        }
+    void FixedUpdate() {
         searchAndDestroy();
     }
 
@@ -39,13 +35,12 @@ public class Minion : Enemy {
         }
     }
 
-    private void searchAndDestroy(){
+    void searchAndDestroy(){
         Vector3 position = gameObject.transform.position;
         float distanceToNearestPlayer = float.MaxValue;
         float previousNearestFriend = float.MaxValue;
         float distanceToPlayer;
         float distanceToFriend;
-
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
             distanceToPlayer = Vector3.Distance(position, player.transform.position);
             if (distanceToPlayer < distanceToNearestPlayer) {
@@ -53,14 +48,13 @@ public class Minion : Enemy {
                 distanceToNearestPlayer = distanceToPlayer;
             }
         }
-
-        if(distanceToNearestPlayer < proximity || playerOverride) {
-            Vector3 targetPos = Vector3.MoveTowards(position, nearestPlayer, movementSpeed);
-            EnemyMovement(nearestPlayer);
-        } 
-        else if (playerOverride == false){
-            float idle = Random.Range(0, maxIdleTime);
+                if (distanceToNearestPlayer < proximity || playerOverride == true) {
+                    transform.position = Vector3.MoveTowards(position, nearestPlayer, movementSpeed);
+                    EnemyMovement(nearestPlayer);
+                }
+        else {
             foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")){
+                if (enemy.transform.position == transform.position) break;
                 distanceToFriend = Vector3.Distance(position, enemy.transform.position);
                 if (distanceToFriend < previousNearestFriend) {
                     nearestFriend = enemy.transform.position;
@@ -68,6 +62,7 @@ public class Minion : Enemy {
                 }
            }
             transform.position = Vector3.MoveTowards(position, nearestFriend, movementSpeed);
+            EnemyMovement(nearestPlayer);
         }   
     }
 }

@@ -24,6 +24,12 @@ public class Character : MonoBehaviour {
     Vector3 nearestPlayer = Vector3.zero;
     float previousNearestPlayer = float.MaxValue;
 
+    protected float calculateDamageTaken(string playerElement, float playerBaseDamage, string element) {
+        float elementMultiplier = ElementTable.lookUpElementMultiplier(playerElement, element);
+        float damage = playerBaseDamage * elementMultiplier;
+        return damage;
+    }
+
     protected void rangedAttack(){
         if (Time.time > nextFire) {
             nextFire = Time.time + fireRate;
@@ -43,7 +49,9 @@ public class Character : MonoBehaviour {
                 //ProjectileRigidBody.AddRelativeForce(Owner.transform.position * force);
             } else if (Owner.gameObject.tag == "Enemy") {
                 Vector3 position = gameObject.transform.position;
-                Projectile.GetComponent<ProjectileScript>().element = Owner.GetComponent<Monster>().element;
+                Projectile.GetComponent<ProjectileScript>().element = Owner.GetComponent<Monster>().element1;
+                Projectile.GetComponent<ProjectileScript>().element2 = Owner.GetComponent<Monster>().element2;
+                Projectile.GetComponent<ProjectileScript>().baseDamage = Owner.GetComponent<Monster>().baseDamage;
                 //Physics.IgnoreCollision(Projectile.GetComponent<Collider>(), GetComponent<Collider>());
                 foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
                     float distanceToPlayer = Vector3.Distance(position, player.transform.position);

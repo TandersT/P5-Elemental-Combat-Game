@@ -41,9 +41,9 @@ public class Enemy : Character {
     }
 
     protected void EnemyMovement(Vector3 playerPos) {
-        enemyMove = enemyRB.IsSleeping() ? false : true;
-            ModelDirection.transform.LookAt(playerPos);
-            ModelDirection.transform.Rotate(new Vector3(0, 0, 0), Space.Self);
+        Vector3 playerPosY = new Vector3(playerPos.x, playerPos.y, playerPos.z);
+            ModelDirection.transform.LookAt(playerPosY);
+            //ModelDirection.transform.Rotate(new Vector3(0, 0, 0), Space.Self);
     }
 
     protected void hit(float damage1, float damage2) {
@@ -86,11 +86,7 @@ public class Enemy : Character {
         healthSlider[0].value = currentHealth;
     }
 
-    protected float calculateDamageTaken(string playerElement, float playerBaseDamage, string element){
-        float elementMultiplier = ElementTable.lookUpElementMultiplier(playerElement, element);
-        float damage = playerBaseDamage * elementMultiplier;
-        return damage;
-    }
+
 
     public void dropHealthItem( Vector3 dropPosition){
         float healAmount = GameLogic.healthItemBaseHealAmount / (GameLogic.healthItemHealAmountWeight * GameLogic.currentLevel);

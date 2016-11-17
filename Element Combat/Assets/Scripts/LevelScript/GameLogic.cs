@@ -38,7 +38,7 @@ public class GameLogic : MonoBehaviour {
 
     }
 
-    void Update() {
+    void FixedUpdate() {
         checkGameState(playersAlive, enemiesAlive);
         if (Input.GetKeyDown("a")) {
             endLevel();
@@ -53,7 +53,7 @@ public class GameLogic : MonoBehaviour {
         healthItemDropsForLevel = startLevelHealthItemDrops - currentLevel;
         healthItemsAlreadyDropped = 0;
 		spawnEnemies(minionSpawnAmount, monsterSpawnAmount, currentLevel);
-		spawnPlayers(numberOfPlayers);
+		spawnPlayers();
         UIElements();
 	}
 
@@ -86,7 +86,7 @@ public class GameLogic : MonoBehaviour {
         }
         for (int i = 0; i < monsterSpawnAmount; i++) {
             GameObject Temporary_Enemy_Handler;
-            Temporary_Enemy_Handler = Instantiate(MonsterPrefab, EnemySpawnPos[randomSpawnPos].transform.position, EnemySpawnPos[randomSpawnPos].transform.rotation) as GameObject;
+            Temporary_Enemy_Handler = Instantiate(MonsterPrefab, EnemySpawnPos[randomPos[i]].transform.position, EnemySpawnPos[randomPos[i]].transform.rotation) as GameObject;
             //Temporary_Enemy_Handler.Initialize();
             //Fix later to use constructer instead
             generateRandomElement();
@@ -97,11 +97,11 @@ public class GameLogic : MonoBehaviour {
         
     }
 
-    private void spawnPlayers(uint numberOfPlayers){
+    private void spawnPlayers(){
         for (int i = 0; i < numberOfPlayers; i++) {
             GameObject Temporary_Player_Handler;
             Temporary_Player_Handler = Instantiate(PlayerPrefab, PlayerSpawnPos[i].transform.position, PlayerSpawnPos[i].transform.rotation) as GameObject;
-
+            Debug.Log("Player Spawned");
             //Instantiate
             playersAlive++;
         }
@@ -122,9 +122,11 @@ public class GameLogic : MonoBehaviour {
 	private void endLevel(){
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
             Destroy(enemy);
+            enemiesAlive--;
         }
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
             Destroy(player);
+            playersAlive--;
         }
     }
 }
