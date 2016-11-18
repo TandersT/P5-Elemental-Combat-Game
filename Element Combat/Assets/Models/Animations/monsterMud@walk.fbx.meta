@@ -1,26 +1,26 @@
 fileFormatVersion: 2
-guid: 3505cf03e1aed7b4c992cd6813d33659
-timeCreated: 1479458102
+guid: 01eafddc9df776c42b83e1683550b51e
+timeCreated: 1479465770
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: polySurface1
-    100004: polySurface1 1
-    100006: polySurface2
-    100008: polySurface3
-    100010: pSphere1
+    100000: monster_glass_lowPoly:pSphere1
+    100002: //RootNode
+    100004: polySurface1
+    100006: polySurface1 1
+    100008: polySurface2
+    100010: polySurface3
     100012: transform1
     100014: transform2
     100016: transform3
     100018: transform4
-    400000: //RootNode
-    400002: polySurface1
-    400004: polySurface1 1
-    400006: polySurface2
-    400008: polySurface3
-    400010: pSphere1
+    400000: monster_glass_lowPoly:pSphere1
+    400002: //RootNode
+    400004: polySurface1
+    400006: polySurface1 1
+    400008: polySurface2
+    400010: polySurface3
     400012: transform1
     400014: transform2
     400016: transform3
