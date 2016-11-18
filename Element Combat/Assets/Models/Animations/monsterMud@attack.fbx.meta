@@ -1,60 +1,50 @@
 fileFormatVersion: 2
-guid: 3989feb399005c64b86b8072844a2957
-timeCreated: 1479458087
+guid: edc2d7c2d7cbef843b90d85ab059caa2
+timeCreated: 1479464229
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: polySurface1
-    100004: polySurface1 1
-    100006: polySurface2
-    100008: polySurface3
-    100010: pSphere1
+    100000: monster_glass_lowPoly:pSphere1
+    100002: //RootNode
+    100004: polySurface1
+    100006: polySurface1 1
+    100008: polySurface2
+    100010: polySurface3
     100012: transform1
     100014: transform2
     100016: transform3
     100018: transform4
-    100020: Character1_Reference
-    100022: joint1
-    100024: joint10
-    100026: joint11
-    100028: joint12
-    100030: joint13
-    100032: joint2
-    100034: joint3
-    100036: joint4
-    100038: joint5
-    100040: joint6
-    100042: joint7
-    100044: joint8
-    100046: joint9
-    100048: locator1
-    400000: //RootNode
-    400002: polySurface1
-    400004: polySurface1 1
-    400006: polySurface2
-    400008: polySurface3
-    400010: pSphere1
+    100020: joint1
+    100022: joint10
+    100024: joint2
+    100026: joint3
+    100028: joint4
+    100030: joint5
+    100032: joint6
+    100034: joint7
+    100036: joint8
+    100038: joint9
+    400000: monster_glass_lowPoly:pSphere1
+    400002: //RootNode
+    400004: polySurface1
+    400006: polySurface1 1
+    400008: polySurface2
+    400010: polySurface3
     400012: transform1
     400014: transform2
     400016: transform3
     400018: transform4
-    400020: Character1_Reference
-    400022: joint1
-    400024: joint10
-    400026: joint11
-    400028: joint12
-    400030: joint13
-    400032: joint2
-    400034: joint3
-    400036: joint4
-    400038: joint5
-    400040: joint6
-    400042: joint7
-    400044: joint8
-    400046: joint9
-    400048: locator1
+    400020: joint1
+    400022: joint10
+    400024: joint2
+    400026: joint3
+    400028: joint4
+    400030: joint5
+    400032: joint6
+    400034: joint7
+    400036: joint8
+    400038: joint9
     2300000: polySurface1
     3300000: polySurface1
     4300000: polySurface1
