@@ -10,7 +10,13 @@ public class CameraController : MonoBehaviour {
     float previousLargestZ = float.MinValue;
     float previousSmallestZ = float.MaxValue;
 
-	void FixedUpdate () {
+    void FixedUpdate () {
+        if (GameLogic.playersAlive == 0 || GameLogic.enemiesAlive == 0) {
+            previousLargestX = float.MinValue;
+            previousSmallestX = float.MaxValue;
+            previousLargestZ = float.MinValue;
+            previousSmallestZ = float.MaxValue;
+        }
 		foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
 			if(player.transform.position.x > previousLargestX){
 				previousLargestX = player.transform.position.x;
