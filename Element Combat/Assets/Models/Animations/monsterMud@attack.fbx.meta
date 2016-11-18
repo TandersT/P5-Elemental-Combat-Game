@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: edc2d7c2d7cbef843b90d85ab059caa2
-timeCreated: 1479464229
+guid: c155d40e86291234b9482f6890391811
+timeCreated: 1479465044
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -15,16 +15,6 @@ ModelImporter:
     100014: transform2
     100016: transform3
     100018: transform4
-    100020: joint1
-    100022: joint10
-    100024: joint2
-    100026: joint3
-    100028: joint4
-    100030: joint5
-    100032: joint6
-    100034: joint7
-    100036: joint8
-    100038: joint9
     400000: monster_glass_lowPoly:pSphere1
     400002: //RootNode
     400004: polySurface1
@@ -35,22 +25,11 @@ ModelImporter:
     400014: transform2
     400016: transform3
     400018: transform4
-    400020: joint1
-    400022: joint10
-    400024: joint2
-    400026: joint3
-    400028: joint4
-    400030: joint5
-    400032: joint6
-    400034: joint7
-    400036: joint8
-    400038: joint9
     2300000: polySurface1
     3300000: polySurface1
     4300000: polySurface1
     7400000: Take 001
     9500000: //RootNode
-    13700000: polySurface1
   materials:
     importMaterials: 1
     materialName: 0
@@ -92,7 +71,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
