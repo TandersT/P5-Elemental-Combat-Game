@@ -86,15 +86,11 @@ public class Player : Character {
         if (currentHealth > maxHealth) {
             currentHealth = maxHealth;
         } 
-        else if(currentHealth <= 0.0f) {
+        else if(currentHealth <= 0.0f && alive == true) {
             currentHealth = 0.0f;
             alive = false;
-            if (GameLogic.playersAlive > 0 && GameLogic.playersAlive < 10) {
-                GameLogic.playersAlive--;
-            } else {
-                GameLogic.playersAlive = 0;
-            }
-            
+            GameLogic.playersAlive--;
+            Destroy(gameObject);
             Debug.Log("Players: " + GameLogic.playersAlive);
         }
         healthSlider.value = currentHealth;

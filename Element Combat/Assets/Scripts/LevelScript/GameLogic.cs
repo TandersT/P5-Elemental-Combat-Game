@@ -24,18 +24,24 @@ public class GameLogic : MonoBehaviour {
     public static uint healthItemsAlreadyDropped = 0;
     public uint startLevelHealthItemDrops;
 
+
+    int nextPos;
     private string element1, element2;
 
     //UI
     public Text levelText; 
 
     void Awake() {
-        startLevel(currentLevel);
         //numbersofplayers set to playersconnected
     }
 
     void Start() {
-
+        foreach (GameObject enemySpawn in GameObject.FindGameObjectsWithTag("EnemySpawnPos")) {
+            Debug.Log("Do i rn 6 times?");
+            EnemySpawnPos[nextPos] = enemySpawn;
+            nextPos++;
+        }
+        startLevel(currentLevel);
     }
 
     void FixedUpdate() {
@@ -66,29 +72,37 @@ public class GameLogic : MonoBehaviour {
     }
 
 	private void spawnEnemies(uint minionSpawnAmount, uint monsterSpawnAmount, uint currentLevel){
+        int nextSpawnPoint = 0;
 		minionSpawnAmount *= monsterAmountWeight * currentLevel;
 		monsterSpawnAmount *= monsterAmountWeight * currentLevel;
         for (int i = 0; i < EnemySpawnPos.Length; i++) {
             randomPos.Add(i);
         }
-        int randomSpawnPos = Random.Range(0, randomPos.Count);
-        randomPos.RemoveAt(randomSpawnPos);
+        for (int i = 0; i < randomPos.Count; i++) {
+            int temp = randomPos[i];
+            int randomIndex = Random.Range(i, randomPos.Count);
+            randomPos[i] = randomPos[randomIndex];
+            randomPos[randomIndex] = temp;
+        }
+
         for (int i = 0; i < minionSpawnAmount; i++) {
+            nextSpawnPoint++;
             GameObject Temporary_Enemy_Handler;
             Temporary_Enemy_Handler = Instantiate(MinionPrefab, EnemySpawnPos[randomPos[i]].transform.position, EnemySpawnPos[randomPos[i]].transform.rotation) as GameObject;
             generateRandomElement();
+            //randomPos.RemoveAt(randomPos[i]);
             if (Random.Range(0,1) == 0) {
                 Temporary_Enemy_Handler.GetComponent<Minion>().element = element1;
             } else
                 Temporary_Enemy_Handler.GetComponent<Minion>().element = element2;
-
             enemiesAlive++;
         }
+
         for (int i = 0; i < monsterSpawnAmount; i++) {
+            
             GameObject Temporary_Enemy_Handler;
-            Temporary_Enemy_Handler = Instantiate(MonsterPrefab, EnemySpawnPos[randomPos[i]].transform.position, EnemySpawnPos[randomPos[i]].transform.rotation) as GameObject;
-            //Temporary_Enemy_Handler.Initialize();
-            //Fix later to use constructer instead
+            Temporary_Enemy_Handler = Instantiate(MonsterPrefab, EnemySpawnPos[randomPos[i + nextSpawnPoint]].transform.position, EnemySpawnPos[randomPos[i + nextSpawnPoint]].transform.rotation) as GameObject;
+            //randomPos.RemoveAt(randomPos[i]);
             generateRandomElement();
             Temporary_Enemy_Handler.GetComponent<Monster>().element1 = element1;
             Temporary_Enemy_Handler.GetComponent<Monster>().element2 = element2;
@@ -101,9 +115,14 @@ public class GameLogic : MonoBehaviour {
         for (int i = 0; i < numberOfPlayers; i++) {
             GameObject Temporary_Player_Handler;
             Temporary_Player_Handler = Instantiate(PlayerPrefab, PlayerSpawnPos[i].transform.position, PlayerSpawnPos[i].transform.rotation) as GameObject;
-            Debug.Log("Player Spawned");
-            //Instantiate
+            //An if statement to fix when player amount killed fucks up..
+            if (playersAlive > 100) {
+                //playersAlive = 0;
+            }
+            Debug.Log("BAmount of players: " + playersAlive);
             playersAlive++;
+
+            Debug.Log("AAmount of players: " + playersAlive);
         }
 	}	
 
@@ -111,22 +130,27 @@ public class GameLogic : MonoBehaviour {
         if (playersAlive == 0){
 			endLevel();
 			startLevel(currentLevel);
-        }
-
-		if(enemiesAlive == 0){
+            Debug.Log("All players died!");
+        } else if(enemiesAlive == 0){
             endLevel();
             startLevel(currentLevel++);
+            Debug.Log("All enemies died!");
         }
 	}
 	
 	private void endLevel(){
-        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
-            Destroy(enemy);
-            enemiesAlive--;
+        if (enemiesAlive != 0) {
+            foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
+                Destroy(enemy);
+                enemiesAlive--;
+            }
         }
-        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
-            Destroy(player);
-            playersAlive--;
+        
+        if (playersAlive != 0) {
+            foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
+                Destroy(player);
+                playersAlive--;
+            }
         }
     }
 }
