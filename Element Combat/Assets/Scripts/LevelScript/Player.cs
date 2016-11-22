@@ -18,9 +18,11 @@ public class Player : Character {
     public float gravity = 10.0f;
     public float maxVelocityChange = 10.0f;
     public GameObject playerModelDirection;
+    public float x, y;
+    public bool attacked = false;
 
     void Awake() {
-        playerRB = GetComponent<Rigidbody>();
+        playerRB = GetComponentInChildren<Rigidbody>();
         healthSlider = GameObject.Find(healthSliders[playerID]).GetComponent<Slider>();
         alive = true;
         element = "earth";
@@ -30,10 +32,11 @@ public class Player : Character {
         playerRB.useGravity = false;
         //Debug.Log("Attack: " + element);
         currentHealth = maxHealth;
+
 }
 
     void Update() {
-        if (Input.GetKeyDown("space")) {
+        if (Input.GetKeyDown("space") || attacked == true ){
             rangedAttack();
         }
         //Needs to be set true when walking occours
@@ -51,7 +54,8 @@ public class Player : Character {
 
     void PlayerMovement() {
         // Calculate how fast we should be moving
-        Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        //Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 targetVelocity = new Vector3(x, 0, y);
         targetVelocity = transform.TransformDirection(targetVelocity);
         targetVelocity *= movementSpeed;
 

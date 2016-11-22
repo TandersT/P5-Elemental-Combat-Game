@@ -16,6 +16,7 @@ public class GameLogic : MonoBehaviour {
     public GameObject MinionPrefab, MonsterPrefab, PlayerPrefab;
     public GameObject[] EnemySpawnPos;
     public GameObject[] PlayerSpawnPos = new GameObject[3];
+    public GameObject[] Players = new GameObject[3];
     public static bool SpawnMinions = true;
     static public float healthItemBaseHealAmount;
     [SerializeField]
@@ -115,14 +116,9 @@ public class GameLogic : MonoBehaviour {
         for (int i = 0; i < numberOfPlayers; i++) {
             GameObject Temporary_Player_Handler;
             Temporary_Player_Handler = Instantiate(PlayerPrefab, PlayerSpawnPos[i].transform.position, PlayerSpawnPos[i].transform.rotation) as GameObject;
-            //An if statement to fix when player amount killed fucks up..
-            if (playersAlive > 100) {
-                //playersAlive = 0;
-            }
-            Debug.Log("BAmount of players: " + playersAlive);
+            Players[i] = Temporary_Player_Handler;
             playersAlive++;
 
-            Debug.Log("AAmount of players: " + playersAlive);
         }
 	}	
 
