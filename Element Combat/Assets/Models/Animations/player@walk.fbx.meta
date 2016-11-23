@@ -86,7 +86,7 @@ ModelImporter:
     400076: transform3
     400078: transform4
     4300000: plauer_model_full
-    7400000: Take 001
+    7400000: walk
     9500000: //RootNode
     13700000: plauer_model_full
   materials:
@@ -109,7 +109,115 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bottom
+        weight: 1
+      - path: left
+        weight: 1
+      - path: plauer_model_full
+        weight: 1
+      - path: player_model
+        weight: 1
+      - path: player_model/Model
+        weight: 1
+      - path: player_model/Model/Model 1
+        weight: 1
+      - path: player_model/Model/Model 1/polySurface1
+        weight: 1
+      - path: player_model/Model/Model 1/polySurface1/transform4
+        weight: 1
+      - path: player_model/Model/Model 1/polySurface2
+        weight: 1
+      - path: player_model/Model/Model 1/polySurface2/transform3
+        weight: 1
+      - path: player_model/Model/Model 1/polySurface3
+        weight: 1
+      - path: player_model/Model/Model 1/polySurface3/transform2
+        weight: 1
+      - path: player_model/Model/Model 1/transform1
+        weight: 1
+      - path: player_rig
+        weight: 1
+      - path: player_rig/Body
+        weight: 1
+      - path: player_rig/Body/Head
+        weight: 1
+      - path: player_rig/Body/Head/HeadJoint1
+        weight: 1
+      - path: player_rig/Body/Head/HeadJoint1/HeadJoint2
+        weight: 1
+      - path: player_rig/Body/Head/HeadJoint1/HeadJoint2/HeadJoint3
+        weight: 1
+      - path: player_rig/Body/Head/HeadJoint1/HeadJoint2/HeadJoint3/HeadJoint4
+        weight: 1
+      - path: player_rig/Body/LeftShoulder
+        weight: 1
+      - path: player_rig/Body/LeftShoulder/LeftArm
+        weight: 1
+      - path: player_rig/Body/LeftShoulder/LeftArm/LeftElbow_Translate_X
+        weight: 1
+      - path: player_rig/Body/LeftShoulder/LeftArm/LeftElbow_Translate_X/Lefthand
+        weight: 1
+      - path: player_rig/Body/RightShoulder
+        weight: 1
+      - path: player_rig/Body/RightShoulder/RIghtArm
+        weight: 1
+      - path: player_rig/Body/RightShoulder/RIghtArm/RightElbow
+        weight: 1
+      - path: player_rig/Body/RightShoulder/RIghtArm/RightElbow/RightHand
+        weight: 1
+      - path: player_rig/LeftLeg
+        weight: 1
+      - path: player_rig/LeftLeg/joint1
+        weight: 1
+      - path: player_rig/LeftLeg/joint1/joint2
+        weight: 1
+      - path: player_rig/LeftLeg/joint1/joint2/LeftFoot
+        weight: 1
+      - path: player_rig/LeftLeg/joint1/joint2/LeftFoot/LeftFootBent
+        weight: 1
+      - path: player_rig/LeftLeg/joint1/joint2/LeftFoot/LeftFootBent/LeftFootToes
+        weight: 1
+      - path: player_rig/RightLeg
+        weight: 1
+      - path: player_rig/RightLeg/joint3
+        weight: 1
+      - path: player_rig/RightLeg/joint3/RightFoot
+        weight: 1
+      - path: player_rig/RightLeg/joint3/RightFoot/RightFootBent
+        weight: 1
+      - path: player_rig/RightLeg/joint3/RightFoot/RightFootBent/RightFootToes
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
