@@ -16,20 +16,14 @@ public class playerAnim : MonoBehaviour {
 	void Update () 
 	{
 		// detect if we're pressing a button
-		if (Input.GetKeyDown ("w")) {
+		if (Input.GetKeyDown("w")) {
 			//-1 indicats where the animations are in the animator which is the base layer
 			anim.Play ("walk", -1, 0f);
 		} 
 
-//		else if (Input.GetMouseButtonDown (0)) {
-//			anim.Play ("attack", -1, 0f);
-//		} 
-//
-//		else 
-//		{
-//			anim.Play ("still", -1, 0f);
-//		}
-			
-}
-}
+		if (Input.GetMouseButtonDown(0)) {
+			anim.Play ("attack", -1, 0f);
 
+}
+}
+}
