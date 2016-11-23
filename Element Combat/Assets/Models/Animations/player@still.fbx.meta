@@ -66,7 +66,7 @@ ModelImporter:
     400056: RightLeg
     400058: RightShoulder
     4300000: polySurface1
-    7400000: Take 001
+    7400000: still
     9500000: //RootNode
     13700000: polySurface1
   materials:
@@ -89,7 +89,95 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: still
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bottom
+        weight: 1
+      - path: left
+        weight: 1
+      - path: Model
+        weight: 1
+      - path: Model/Body
+        weight: 1
+      - path: Model/Body/Head
+        weight: 1
+      - path: Model/Body/Head/HeadJoint1
+        weight: 1
+      - path: Model/Body/Head/HeadJoint1/HeadJoint2
+        weight: 1
+      - path: Model/Body/Head/HeadJoint1/HeadJoint2/HeadJoint3
+        weight: 1
+      - path: Model/Body/Head/HeadJoint1/HeadJoint2/HeadJoint3/HeadJoint4
+        weight: 1
+      - path: Model/Body/LeftShoulder
+        weight: 1
+      - path: Model/Body/LeftShoulder/LeftArm
+        weight: 1
+      - path: Model/Body/LeftShoulder/LeftArm/LeftElbow
+        weight: 1
+      - path: Model/Body/LeftShoulder/LeftArm/LeftElbow/Lefthand
+        weight: 1
+      - path: Model/Body/RightShoulder
+        weight: 1
+      - path: Model/Body/RightShoulder/RIghtArm
+        weight: 1
+      - path: Model/Body/RightShoulder/RIghtArm/RightElbow
+        weight: 1
+      - path: Model/Body/RightShoulder/RIghtArm/RightElbow/RightHand
+        weight: 1
+      - path: Model/LeftLeg
+        weight: 1
+      - path: Model/LeftLeg/joint1
+        weight: 1
+      - path: Model/LeftLeg/joint1/joint2
+        weight: 1
+      - path: Model/LeftLeg/joint1/joint2/LeftFoot
+        weight: 1
+      - path: Model/LeftLeg/joint1/joint2/LeftFoot/LeftFootBent
+        weight: 1
+      - path: Model/LeftLeg/joint1/joint2/LeftFoot/LeftFootBent/LeftFootToes
+        weight: 1
+      - path: Model/RightLeg
+        weight: 1
+      - path: Model/RightLeg/joint3
+        weight: 1
+      - path: Model/RightLeg/joint3/RightFoot
+        weight: 1
+      - path: Model/RightLeg/joint3/RightFoot/RightFootBent
+        weight: 1
+      - path: Model/RightLeg/joint3/RightFoot/RightFootBent/RightFootToes
+        weight: 1
+      - path: polySurface1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
