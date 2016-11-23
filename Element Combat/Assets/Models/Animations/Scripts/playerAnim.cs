@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+#pragma strict
 
 public class playerAnim : MonoBehaviour {
 
@@ -13,17 +13,22 @@ public class playerAnim : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void Update ()
 	{
-		// detect if we're pressing a button
-		if (Input.GetKeyDown("w")) {
-			//-1 indicats where the animations are in the animator which is the base layer
-			anim.Play ("walk", -1, 0f);
-		} 
+			float walk = Input.GetAxis ("Vertical");
+			anim.SetFloat ("walk", walk);
+	}
+}
 
-		if (Input.GetMouseButtonDown(0)) {
-			anim.Play ("attack", -1, 0f);
 
-}
-}
-}
+
+
+//		// detect if we're pressing a button
+//		if (Input.GetKeyDown("w")) {
+//			//-1 indicats where the animations are in the animator which is the base layer
+//			anim.Play ("walk", -1, 0f);
+//		} 
+//
+//		if (Input.GetMouseButtonDown(0)) {
+//			anim.Play ("attack", -1, 0f);
+
