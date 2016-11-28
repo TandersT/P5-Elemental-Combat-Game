@@ -1,0 +1,578 @@
+fileFormatVersion: 2
+guid: 3b7f6f62cd7e5fe45b42c6895303f007
+timeCreated: 1480253602
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Body
+    100002: bottom
+    100004: Head
+    100006: HeadJoint1
+    100008: HeadJoint2
+    100010: HeadJoint3
+    100012: HeadJoint4
+    100014: joint1
+    100016: joint2
+    100018: joint3
+    100020: left
+    100022: LeftArm
+    100024: LeftElbow_Translate_X
+    100026: LeftFoot
+    100028: LeftFootBent
+    100030: LeftFootToes
+    100032: Lefthand
+    100034: LeftLeg
+    100036: LeftShoulder
+    100038: Model
+    100040: player_attack:Body
+    100042: player_attack:bottom
+    100044: player_attack:Head
+    100046: player_attack:HeadJoint1
+    100048: player_attack:HeadJoint2
+    100050: player_attack:HeadJoint3
+    100052: player_attack:HeadJoint4
+    100054: player_attack:joint1
+    100056: player_attack:joint2
+    100058: player_attack:joint3
+    100060: player_attack:left
+    100062: player_attack:LeftArm
+    100064: player_attack:LeftElbow
+    100066: player_attack:LeftFoot
+    100068: player_attack:LeftFootBent
+    100070: player_attack:LeftFootToes
+    100072: player_attack:Lefthand
+    100074: player_attack:LeftLeg
+    100076: player_attack:LeftShoulder
+    100078: player_attack:Model
+    100080: player_attack:polySurface1
+    100082: player_attack:RIghtArm
+    100084: player_attack:RightElbow
+    100086: player_attack:RightFoot
+    100088: player_attack:RightFootBent
+    100090: player_attack:RightFootToes
+    100092: player_attack:RightHand
+    100094: player_attack:RightLeg
+    100096: player_attack:RightShoulder
+    100098: player_death:Body
+    100100: player_death:bottom
+    100102: player_death:Head
+    100104: player_death:HeadJoint1
+    100106: player_death:HeadJoint2
+    100108: player_death:HeadJoint3
+    100110: player_death:HeadJoint4
+    100112: player_death:joint1
+    100114: player_death:joint2
+    100116: player_death:joint3
+    100118: player_death:left
+    100120: player_death:LeftArm
+    100122: player_death:LeftElbow_Translate_X
+    100124: player_death:LeftFoot
+    100126: player_death:LeftFootBent
+    100128: player_death:LeftFootToes
+    100130: player_death:Lefthand
+    100132: player_death:LeftLeg
+    100134: player_death:LeftShoulder
+    100136: player_death:Model
+    100138: player_death:polySurface1
+    100140: player_death:RIghtArm
+    100142: player_death:RightElbow
+    100144: player_death:RightFoot
+    100146: player_death:RightFootBent
+    100148: player_death:RightFootToes
+    100150: player_death:RightHand
+    100152: player_death:RightLeg
+    100154: player_death:RightShoulder
+    100156: player_hit:Body
+    100158: player_hit:bottom
+    100160: player_hit:Head
+    100162: player_hit:HeadJoint1
+    100164: player_hit:HeadJoint2
+    100166: player_hit:HeadJoint3
+    100168: player_hit:HeadJoint4
+    100170: player_hit:joint1
+    100172: player_hit:joint2
+    100174: player_hit:joint3
+    100176: player_hit:left
+    100178: player_hit:LeftArm
+    100180: player_hit:LeftElbow
+    100182: player_hit:LeftFoot
+    100184: player_hit:LeftFootBent
+    100186: player_hit:LeftFootToes
+    100188: player_hit:Lefthand
+    100190: player_hit:LeftLeg
+    100192: player_hit:LeftShoulder
+    100194: player_hit:Model
+    100196: player_hit:polySurface1
+    100198: player_hit:RIghtArm
+    100200: player_hit:RightElbow
+    100202: player_hit:RightFoot
+    100204: player_hit:RightFootBent
+    100206: player_hit:RightFootToes
+    100208: player_hit:RightHand
+    100210: player_hit:RightLeg
+    100212: player_hit:RightShoulder
+    100214: //RootNode
+    100216: polySurface1
+    100218: RIghtArm
+    100220: RightElbow
+    100222: RightFoot
+    100224: RightFootBent
+    100226: RightFootToes
+    100228: RightHand
+    100230: RightLeg
+    100232: RightShoulder
+    400000: Body
+    400002: bottom
+    400004: Head
+    400006: HeadJoint1
+    400008: HeadJoint2
+    400010: HeadJoint3
+    400012: HeadJoint4
+    400014: joint1
+    400016: joint2
+    400018: joint3
+    400020: left
+    400022: LeftArm
+    400024: LeftElbow_Translate_X
+    400026: LeftFoot
+    400028: LeftFootBent
+    400030: LeftFootToes
+    400032: Lefthand
+    400034: LeftLeg
+    400036: LeftShoulder
+    400038: Model
+    400040: player_attack:Body
+    400042: player_attack:bottom
+    400044: player_attack:Head
+    400046: player_attack:HeadJoint1
+    400048: player_attack:HeadJoint2
+    400050: player_attack:HeadJoint3
+    400052: player_attack:HeadJoint4
+    400054: player_attack:joint1
+    400056: player_attack:joint2
+    400058: player_attack:joint3
+    400060: player_attack:left
+    400062: player_attack:LeftArm
+    400064: player_attack:LeftElbow
+    400066: player_attack:LeftFoot
+    400068: player_attack:LeftFootBent
+    400070: player_attack:LeftFootToes
+    400072: player_attack:Lefthand
+    400074: player_attack:LeftLeg
+    400076: player_attack:LeftShoulder
+    400078: player_attack:Model
+    400080: player_attack:polySurface1
+    400082: player_attack:RIghtArm
+    400084: player_attack:RightElbow
+    400086: player_attack:RightFoot
+    400088: player_attack:RightFootBent
+    400090: player_attack:RightFootToes
+    400092: player_attack:RightHand
+    400094: player_attack:RightLeg
+    400096: player_attack:RightShoulder
+    400098: player_death:Body
+    400100: player_death:bottom
+    400102: player_death:Head
+    400104: player_death:HeadJoint1
+    400106: player_death:HeadJoint2
+    400108: player_death:HeadJoint3
+    400110: player_death:HeadJoint4
+    400112: player_death:joint1
+    400114: player_death:joint2
+    400116: player_death:joint3
+    400118: player_death:left
+    400120: player_death:LeftArm
+    400122: player_death:LeftElbow_Translate_X
+    400124: player_death:LeftFoot
+    400126: player_death:LeftFootBent
+    400128: player_death:LeftFootToes
+    400130: player_death:Lefthand
+    400132: player_death:LeftLeg
+    400134: player_death:LeftShoulder
+    400136: player_death:Model
+    400138: player_death:polySurface1
+    400140: player_death:RIghtArm
+    400142: player_death:RightElbow
+    400144: player_death:RightFoot
+    400146: player_death:RightFootBent
+    400148: player_death:RightFootToes
+    400150: player_death:RightHand
+    400152: player_death:RightLeg
+    400154: player_death:RightShoulder
+    400156: player_hit:Body
+    400158: player_hit:bottom
+    400160: player_hit:Head
+    400162: player_hit:HeadJoint1
+    400164: player_hit:HeadJoint2
+    400166: player_hit:HeadJoint3
+    400168: player_hit:HeadJoint4
+    400170: player_hit:joint1
+    400172: player_hit:joint2
+    400174: player_hit:joint3
+    400176: player_hit:left
+    400178: player_hit:LeftArm
+    400180: player_hit:LeftElbow
+    400182: player_hit:LeftFoot
+    400184: player_hit:LeftFootBent
+    400186: player_hit:LeftFootToes
+    400188: player_hit:Lefthand
+    400190: player_hit:LeftLeg
+    400192: player_hit:LeftShoulder
+    400194: player_hit:Model
+    400196: player_hit:polySurface1
+    400198: player_hit:RIghtArm
+    400200: player_hit:RightElbow
+    400202: player_hit:RightFoot
+    400204: player_hit:RightFootBent
+    400206: player_hit:RightFootToes
+    400208: player_hit:RightHand
+    400210: player_hit:RightLeg
+    400212: player_hit:RightShoulder
+    400214: //RootNode
+    400216: polySurface1
+    400218: RIghtArm
+    400220: RightElbow
+    400222: RightFoot
+    400224: RightFootBent
+    400226: RightFootToes
+    400228: RightHand
+    400230: RightLeg
+    400232: RightShoulder
+    4300000: polySurface1
+    4300002: player_attack:polySurface1
+    4300004: player_hit:polySurface1
+    4300006: player_death:polySurface1
+    7400000: walk
+    9500000: //RootNode
+    13700000: player_attack:polySurface1
+    13700002: player_death:polySurface1
+    13700004: player_hit:polySurface1
+    13700006: polySurface1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bottom
+        weight: 1
+      - path: left
+        weight: 1
+      - path: Model
+        weight: 1
+      - path: Model/Body
+        weight: 1
+      - path: Model/Body/Head
+        weight: 1
+      - path: Model/Body/Head/HeadJoint1
+        weight: 1
+      - path: Model/Body/Head/HeadJoint1/HeadJoint2
+        weight: 1
+      - path: Model/Body/Head/HeadJoint1/HeadJoint2/HeadJoint3
+        weight: 1
+      - path: Model/Body/Head/HeadJoint1/HeadJoint2/HeadJoint3/HeadJoint4
+        weight: 1
+      - path: Model/Body/LeftShoulder
+        weight: 1
+      - path: Model/Body/LeftShoulder/LeftArm
+        weight: 1
+      - path: Model/Body/LeftShoulder/LeftArm/LeftElbow_Translate_X
+        weight: 1
+      - path: Model/Body/LeftShoulder/LeftArm/LeftElbow_Translate_X/Lefthand
+        weight: 1
+      - path: Model/Body/RightShoulder
+        weight: 1
+      - path: Model/Body/RightShoulder/RIghtArm
+        weight: 1
+      - path: Model/Body/RightShoulder/RIghtArm/RightElbow
+        weight: 1
+      - path: Model/Body/RightShoulder/RIghtArm/RightElbow/RightHand
+        weight: 1
+      - path: Model/LeftLeg
+        weight: 1
+      - path: Model/LeftLeg/joint1
+        weight: 1
+      - path: Model/LeftLeg/joint1/joint2
+        weight: 1
+      - path: Model/LeftLeg/joint1/joint2/LeftFoot
+        weight: 1
+      - path: Model/LeftLeg/joint1/joint2/LeftFoot/LeftFootBent
+        weight: 1
+      - path: Model/LeftLeg/joint1/joint2/LeftFoot/LeftFootBent/LeftFootToes
+        weight: 1
+      - path: Model/RightLeg
+        weight: 1
+      - path: Model/RightLeg/joint3
+        weight: 1
+      - path: Model/RightLeg/joint3/RightFoot
+        weight: 1
+      - path: Model/RightLeg/joint3/RightFoot/RightFootBent
+        weight: 1
+      - path: Model/RightLeg/joint3/RightFoot/RightFootBent/RightFootToes
+        weight: 1
+      - path: player_attack:bottom
+        weight: 1
+      - path: player_attack:left
+        weight: 1
+      - path: player_attack:Model
+        weight: 1
+      - path: player_attack:Model/player_attack:Body
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:Head
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:Head/player_attack:HeadJoint1
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:Head/player_attack:HeadJoint1/player_attack:HeadJoint2
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:Head/player_attack:HeadJoint1/player_attack:HeadJoint2/player_attack:HeadJoint3
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:Head/player_attack:HeadJoint1/player_attack:HeadJoint2/player_attack:HeadJoint3/player_attack:HeadJoint4
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:LeftShoulder
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:LeftShoulder/player_attack:LeftArm
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:LeftShoulder/player_attack:LeftArm/player_attack:LeftElbow
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:LeftShoulder/player_attack:LeftArm/player_attack:LeftElbow/player_attack:Lefthand
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:RightShoulder
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:RightShoulder/player_attack:RIghtArm
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:RightShoulder/player_attack:RIghtArm/player_attack:RightElbow
+        weight: 1
+      - path: player_attack:Model/player_attack:Body/player_attack:RightShoulder/player_attack:RIghtArm/player_attack:RightElbow/player_attack:RightHand
+        weight: 1
+      - path: player_attack:Model/player_attack:LeftLeg
+        weight: 1
+      - path: player_attack:Model/player_attack:LeftLeg/player_attack:joint1
+        weight: 1
+      - path: player_attack:Model/player_attack:LeftLeg/player_attack:joint1/player_attack:joint2
+        weight: 1
+      - path: player_attack:Model/player_attack:LeftLeg/player_attack:joint1/player_attack:joint2/player_attack:LeftFoot
+        weight: 1
+      - path: player_attack:Model/player_attack:LeftLeg/player_attack:joint1/player_attack:joint2/player_attack:LeftFoot/player_attack:LeftFootBent
+        weight: 1
+      - path: player_attack:Model/player_attack:LeftLeg/player_attack:joint1/player_attack:joint2/player_attack:LeftFoot/player_attack:LeftFootBent/player_attack:LeftFootToes
+        weight: 1
+      - path: player_attack:Model/player_attack:RightLeg
+        weight: 1
+      - path: player_attack:Model/player_attack:RightLeg/player_attack:joint3
+        weight: 1
+      - path: player_attack:Model/player_attack:RightLeg/player_attack:joint3/player_attack:RightFoot
+        weight: 1
+      - path: player_attack:Model/player_attack:RightLeg/player_attack:joint3/player_attack:RightFoot/player_attack:RightFootBent
+        weight: 1
+      - path: player_attack:Model/player_attack:RightLeg/player_attack:joint3/player_attack:RightFoot/player_attack:RightFootBent/player_attack:RightFootToes
+        weight: 1
+      - path: player_attack:polySurface1
+        weight: 1
+      - path: player_death:bottom
+        weight: 1
+      - path: player_death:left
+        weight: 1
+      - path: player_death:Model
+        weight: 1
+      - path: player_death:Model/player_death:Body
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:Head
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:Head/player_death:HeadJoint1
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:Head/player_death:HeadJoint1/player_death:HeadJoint2
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:Head/player_death:HeadJoint1/player_death:HeadJoint2/player_death:HeadJoint3
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:Head/player_death:HeadJoint1/player_death:HeadJoint2/player_death:HeadJoint3/player_death:HeadJoint4
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:LeftShoulder
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:LeftShoulder/player_death:LeftArm
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:LeftShoulder/player_death:LeftArm/player_death:LeftElbow_Translate_X
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:LeftShoulder/player_death:LeftArm/player_death:LeftElbow_Translate_X/player_death:Lefthand
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:RightShoulder
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:RightShoulder/player_death:RIghtArm
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:RightShoulder/player_death:RIghtArm/player_death:RightElbow
+        weight: 1
+      - path: player_death:Model/player_death:Body/player_death:RightShoulder/player_death:RIghtArm/player_death:RightElbow/player_death:RightHand
+        weight: 1
+      - path: player_death:Model/player_death:LeftLeg
+        weight: 1
+      - path: player_death:Model/player_death:LeftLeg/player_death:joint1
+        weight: 1
+      - path: player_death:Model/player_death:LeftLeg/player_death:joint1/player_death:joint2
+        weight: 1
+      - path: player_death:Model/player_death:LeftLeg/player_death:joint1/player_death:joint2/player_death:LeftFoot
+        weight: 1
+      - path: player_death:Model/player_death:LeftLeg/player_death:joint1/player_death:joint2/player_death:LeftFoot/player_death:LeftFootBent
+        weight: 1
+      - path: player_death:Model/player_death:LeftLeg/player_death:joint1/player_death:joint2/player_death:LeftFoot/player_death:LeftFootBent/player_death:LeftFootToes
+        weight: 1
+      - path: player_death:Model/player_death:RightLeg
+        weight: 1
+      - path: player_death:Model/player_death:RightLeg/player_death:joint3
+        weight: 1
+      - path: player_death:Model/player_death:RightLeg/player_death:joint3/player_death:RightFoot
+        weight: 1
+      - path: player_death:Model/player_death:RightLeg/player_death:joint3/player_death:RightFoot/player_death:RightFootBent
+        weight: 1
+      - path: player_death:Model/player_death:RightLeg/player_death:joint3/player_death:RightFoot/player_death:RightFootBent/player_death:RightFootToes
+        weight: 1
+      - path: player_death:polySurface1
+        weight: 1
+      - path: player_hit:bottom
+        weight: 1
+      - path: player_hit:left
+        weight: 1
+      - path: player_hit:Model
+        weight: 1
+      - path: player_hit:Model/player_hit:Body
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:Head
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:Head/player_hit:HeadJoint1
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:Head/player_hit:HeadJoint1/player_hit:HeadJoint2
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:Head/player_hit:HeadJoint1/player_hit:HeadJoint2/player_hit:HeadJoint3
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:Head/player_hit:HeadJoint1/player_hit:HeadJoint2/player_hit:HeadJoint3/player_hit:HeadJoint4
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:LeftShoulder
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:LeftShoulder/player_hit:LeftArm
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:LeftShoulder/player_hit:LeftArm/player_hit:LeftElbow
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:LeftShoulder/player_hit:LeftArm/player_hit:LeftElbow/player_hit:Lefthand
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:RightShoulder
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:RightShoulder/player_hit:RIghtArm
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:RightShoulder/player_hit:RIghtArm/player_hit:RightElbow
+        weight: 1
+      - path: player_hit:Model/player_hit:Body/player_hit:RightShoulder/player_hit:RIghtArm/player_hit:RightElbow/player_hit:RightHand
+        weight: 1
+      - path: player_hit:Model/player_hit:LeftLeg
+        weight: 1
+      - path: player_hit:Model/player_hit:LeftLeg/player_hit:joint1
+        weight: 1
+      - path: player_hit:Model/player_hit:LeftLeg/player_hit:joint1/player_hit:joint2
+        weight: 1
+      - path: player_hit:Model/player_hit:LeftLeg/player_hit:joint1/player_hit:joint2/player_hit:LeftFoot
+        weight: 1
+      - path: player_hit:Model/player_hit:LeftLeg/player_hit:joint1/player_hit:joint2/player_hit:LeftFoot/player_hit:LeftFootBent
+        weight: 1
+      - path: player_hit:Model/player_hit:LeftLeg/player_hit:joint1/player_hit:joint2/player_hit:LeftFoot/player_hit:LeftFootBent/player_hit:LeftFootToes
+        weight: 1
+      - path: player_hit:Model/player_hit:RightLeg
+        weight: 1
+      - path: player_hit:Model/player_hit:RightLeg/player_hit:joint3
+        weight: 1
+      - path: player_hit:Model/player_hit:RightLeg/player_hit:joint3/player_hit:RightFoot
+        weight: 1
+      - path: player_hit:Model/player_hit:RightLeg/player_hit:joint3/player_hit:RightFoot/player_hit:RightFootBent
+        weight: 1
+      - path: player_hit:Model/player_hit:RightLeg/player_hit:joint3/player_hit:RightFoot/player_hit:RightFootBent/player_hit:RightFootToes
+        weight: 1
+      - path: player_hit:polySurface1
+        weight: 1
+      - path: polySurface1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
