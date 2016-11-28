@@ -1,0 +1,421 @@
+fileFormatVersion: 2
+guid: 2642ca2131e0d8c498fda201c3aaf954
+timeCreated: 1480352664
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Body
+    100002: bottom
+    100004: Head
+    100006: HeadJoint1
+    100008: ikHandle1
+    100010: joint10
+    100012: joint12
+    100014: joint13
+    100016: joint14
+    100018: joint15
+    100020: joint4
+    100022: joint5
+    100024: joint6
+    100026: joint8
+    100028: left
+    100030: LeftShoulder
+    100032: player
+    100034: player_bones
+    100036: //RootNode
+    100038: RightFoot
+    100040: RightFootToes
+    100042: RightLeg
+    100044: RightShoulder
+    400000: Body
+    400002: bottom
+    400004: Head
+    400006: HeadJoint1
+    400008: ikHandle1
+    400010: joint10
+    400012: joint12
+    400014: joint13
+    400016: joint14
+    400018: joint15
+    400020: joint4
+    400022: joint5
+    400024: joint6
+    400026: joint8
+    400028: left
+    400030: LeftShoulder
+    400032: player
+    400034: player_bones
+    400036: //RootNode
+    400038: RightFoot
+    400040: RightFootToes
+    400042: RightLeg
+    400044: RightShoulder
+    4300000: player
+    7400000: walk
+    7400002: still
+    7400004: hit
+    7400006: attack
+    9500000: //RootNode
+    13700000: player
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bottom
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: left
+        weight: 1
+      - path: player
+        weight: 1
+      - path: player_bones
+        weight: 1
+      - path: player_bones/Body
+        weight: 1
+      - path: player_bones/Body/Head
+        weight: 1
+      - path: player_bones/Body/Head/HeadJoint1
+        weight: 1
+      - path: player_bones/Body/Head/HeadJoint1/joint4
+        weight: 1
+      - path: player_bones/Body/Head/HeadJoint1/joint4/joint5
+        weight: 1
+      - path: player_bones/Body/LeftShoulder
+        weight: 1
+      - path: player_bones/Body/LeftShoulder/joint12
+        weight: 1
+      - path: player_bones/Body/LeftShoulder/joint12/joint13
+        weight: 1
+      - path: player_bones/Body/RightShoulder
+        weight: 1
+      - path: player_bones/Body/RightShoulder/joint14
+        weight: 1
+      - path: player_bones/Body/RightShoulder/joint14/joint15
+        weight: 1
+      - path: player_bones/joint6
+        weight: 1
+      - path: player_bones/joint6/joint8
+        weight: 1
+      - path: player_bones/joint6/joint8/joint10
+        weight: 1
+      - path: player_bones/RightLeg
+        weight: 1
+      - path: player_bones/RightLeg/RightFoot
+        weight: 1
+      - path: player_bones/RightLeg/RightFoot/RightFootToes
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: still
+      takeName: Take 001
+      firstFrame: 100
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bottom
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: left
+        weight: 1
+      - path: player
+        weight: 1
+      - path: player_bones
+        weight: 1
+      - path: player_bones/Body
+        weight: 1
+      - path: player_bones/Body/Head
+        weight: 1
+      - path: player_bones/Body/Head/HeadJoint1
+        weight: 1
+      - path: player_bones/Body/Head/HeadJoint1/joint4
+        weight: 1
+      - path: player_bones/Body/Head/HeadJoint1/joint4/joint5
+        weight: 1
+      - path: player_bones/Body/LeftShoulder
+        weight: 1
+      - path: player_bones/Body/LeftShoulder/joint12
+        weight: 1
+      - path: player_bones/Body/LeftShoulder/joint12/joint13
+        weight: 1
+      - path: player_bones/Body/RightShoulder
+        weight: 1
+      - path: player_bones/Body/RightShoulder/joint14
+        weight: 1
+      - path: player_bones/Body/RightShoulder/joint14/joint15
+        weight: 1
+      - path: player_bones/joint6
+        weight: 1
+      - path: player_bones/joint6/joint8
+        weight: 1
+      - path: player_bones/joint6/joint8/joint10
+        weight: 1
+      - path: player_bones/RightLeg
+        weight: 1
+      - path: player_bones/RightLeg/RightFoot
+        weight: 1
+      - path: player_bones/RightLeg/RightFoot/RightFootToes
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: hit
+      takeName: Take 001
+      firstFrame: 150
+      lastFrame: 270
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bottom
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: left
+        weight: 1
+      - path: player
+        weight: 1
+      - path: player_bones
+        weight: 1
+      - path: player_bones/Body
+        weight: 1
+      - path: player_bones/Body/Head
+        weight: 1
+      - path: player_bones/Body/Head/HeadJoint1
+        weight: 1
+      - path: player_bones/Body/Head/HeadJoint1/joint4
+        weight: 1
+      - path: player_bones/Body/Head/HeadJoint1/joint4/joint5
+        weight: 1
+      - path: player_bones/Body/LeftShoulder
+        weight: 1
+      - path: player_bones/Body/LeftShoulder/joint12
+        weight: 1
+      - path: player_bones/Body/LeftShoulder/joint12/joint13
+        weight: 1
+      - path: player_bones/Body/RightShoulder
+        weight: 1
+      - path: player_bones/Body/RightShoulder/joint14
+        weight: 1
+      - path: player_bones/Body/RightShoulder/joint14/joint15
+        weight: 1
+      - path: player_bones/joint6
+        weight: 1
+      - path: player_bones/joint6/joint8
+        weight: 1
+      - path: player_bones/joint6/joint8/joint10
+        weight: 1
+      - path: player_bones/RightLeg
+        weight: 1
+      - path: player_bones/RightLeg/RightFoot
+        weight: 1
+      - path: player_bones/RightLeg/RightFoot/RightFootToes
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: attack
+      takeName: Take 001
+      firstFrame: 270
+      lastFrame: 370
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bottom
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: left
+        weight: 1
+      - path: player
+        weight: 1
+      - path: player_bones
+        weight: 1
+      - path: player_bones/Body
+        weight: 1
+      - path: player_bones/Body/Head
+        weight: 1
+      - path: player_bones/Body/Head/HeadJoint1
+        weight: 1
+      - path: player_bones/Body/Head/HeadJoint1/joint4
+        weight: 1
+      - path: player_bones/Body/Head/HeadJoint1/joint4/joint5
+        weight: 1
+      - path: player_bones/Body/LeftShoulder
+        weight: 1
+      - path: player_bones/Body/LeftShoulder/joint12
+        weight: 1
+      - path: player_bones/Body/LeftShoulder/joint12/joint13
+        weight: 1
+      - path: player_bones/Body/RightShoulder
+        weight: 1
+      - path: player_bones/Body/RightShoulder/joint14
+        weight: 1
+      - path: player_bones/Body/RightShoulder/joint14/joint15
+        weight: 1
+      - path: player_bones/joint6
+        weight: 1
+      - path: player_bones/joint6/joint8
+        weight: 1
+      - path: player_bones/joint6/joint8/joint10
+        weight: 1
+      - path: player_bones/RightLeg
+        weight: 1
+      - path: player_bones/RightLeg/RightFoot
+        weight: 1
+      - path: player_bones/RightLeg/RightFoot/RightFootToes
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -15,8 +15,14 @@ public class playerAnim : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-			float walk = Input.GetAxis ("Vertical");
-			anim.SetFloat ("walk", walk);
+		float walk = Input.GetAxis ("Vertical");
+		anim.SetFloat ("walk", walk);
+
+		//once the transition has begun, reset the bool
+		if (Input.GetMouseButtonDown(0)) 
+		{
+			anim.Play ("attack", -1,0f);
+		}
 	}
 }
 
