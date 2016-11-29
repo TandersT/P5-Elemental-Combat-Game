@@ -1,0 +1,489 @@
+fileFormatVersion: 2
+guid: 7b4b9f42f5085b349b6b7b7ee3fb4310
+timeCreated: 1480410005
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: base_minions:pCube1
+    100002: base_minions:pCylinder1
+    100004: base_minions:pCylinder2
+    100006: base_minions:pCylinder3
+    100008: base_minions:transform1
+    100010: base_minions:transform2
+    100012: base_minions:transform3
+    100014: base_minions:transform4
+    100016: joint1
+    100018: joint2
+    100020: joint3
+    100022: joint4
+    100024: joint5
+    100026: joint6
+    100028: joint7
+    100030: //RootNode
+    100032: pCylinder1
+    100034: pCylinder2
+    100036: pSphere1
+    100038: pSphere10
+    100040: pSphere11
+    100042: pSphere2
+    100044: pSphere3
+    100046: pSphere4
+    100048: pSphere5
+    100050: pSphere6
+    100052: pSphere7
+    100054: pSphere8
+    100056: pSphere9
+    100058: transform1
+    100060: transform10
+    100062: transform11
+    100064: transform12
+    100066: transform2
+    100068: transform3
+    100070: transform4
+    100072: transform5
+    100074: transform6
+    100076: transform7
+    100078: transform8
+    100080: transform9
+    400000: base_minions:pCube1
+    400002: base_minions:pCylinder1
+    400004: base_minions:pCylinder2
+    400006: base_minions:pCylinder3
+    400008: base_minions:transform1
+    400010: base_minions:transform2
+    400012: base_minions:transform3
+    400014: base_minions:transform4
+    400016: joint1
+    400018: joint2
+    400020: joint3
+    400022: joint4
+    400024: joint5
+    400026: joint6
+    400028: joint7
+    400030: //RootNode
+    400032: pCylinder1
+    400034: pCylinder2
+    400036: pSphere1
+    400038: pSphere10
+    400040: pSphere11
+    400042: pSphere2
+    400044: pSphere3
+    400046: pSphere4
+    400048: pSphere5
+    400050: pSphere6
+    400052: pSphere7
+    400054: pSphere8
+    400056: pSphere9
+    400058: transform1
+    400060: transform10
+    400062: transform11
+    400064: transform12
+    400066: transform2
+    400068: transform3
+    400070: transform4
+    400072: transform5
+    400074: transform6
+    400076: transform7
+    400078: transform8
+    400080: transform9
+    4300000: pSphere11
+    7400000: still
+    7400002: walk
+    7400004: attack
+    9500000: //RootNode
+    13700000: pSphere11
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: still
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base_minions:pCube1
+        weight: 1
+      - path: base_minions:pCube1/base_minions:transform1
+        weight: 1
+      - path: base_minions:pCylinder1
+        weight: 1
+      - path: base_minions:pCylinder1/base_minions:transform2
+        weight: 1
+      - path: base_minions:pCylinder2
+        weight: 1
+      - path: base_minions:pCylinder2/base_minions:transform4
+        weight: 1
+      - path: base_minions:pCylinder3
+        weight: 1
+      - path: base_minions:pCylinder3/base_minions:transform3
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: joint1/joint2/joint6
+        weight: 1
+      - path: joint1/joint2/joint6/joint7
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform2
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform3
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform1
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform4
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform6
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform8
+        weight: 1
+      - path: pSphere5
+        weight: 1
+      - path: pSphere5/transform5
+        weight: 1
+      - path: pSphere6
+        weight: 1
+      - path: pSphere6/transform7
+        weight: 1
+      - path: pSphere7
+        weight: 1
+      - path: pSphere7/transform10
+        weight: 1
+      - path: pSphere8
+        weight: 1
+      - path: pSphere8/transform12
+        weight: 1
+      - path: pSphere9
+        weight: 1
+      - path: pSphere9/transform9
+        weight: 1
+      - path: pSphere10
+        weight: 1
+      - path: pSphere10/transform11
+        weight: 1
+      - path: pSphere11
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: walk
+      takeName: Take 001
+      firstFrame: 60
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base_minions:pCube1
+        weight: 1
+      - path: base_minions:pCube1/base_minions:transform1
+        weight: 1
+      - path: base_minions:pCylinder1
+        weight: 1
+      - path: base_minions:pCylinder1/base_minions:transform2
+        weight: 1
+      - path: base_minions:pCylinder2
+        weight: 1
+      - path: base_minions:pCylinder2/base_minions:transform4
+        weight: 1
+      - path: base_minions:pCylinder3
+        weight: 1
+      - path: base_minions:pCylinder3/base_minions:transform3
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: joint1/joint2/joint6
+        weight: 1
+      - path: joint1/joint2/joint6/joint7
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform2
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform3
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform1
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform4
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform6
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform8
+        weight: 1
+      - path: pSphere5
+        weight: 1
+      - path: pSphere5/transform5
+        weight: 1
+      - path: pSphere6
+        weight: 1
+      - path: pSphere6/transform7
+        weight: 1
+      - path: pSphere7
+        weight: 1
+      - path: pSphere7/transform10
+        weight: 1
+      - path: pSphere8
+        weight: 1
+      - path: pSphere8/transform12
+        weight: 1
+      - path: pSphere9
+        weight: 1
+      - path: pSphere9/transform9
+        weight: 1
+      - path: pSphere10
+        weight: 1
+      - path: pSphere10/transform11
+        weight: 1
+      - path: pSphere11
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: attack
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: base_minions:pCube1
+        weight: 1
+      - path: base_minions:pCube1/base_minions:transform1
+        weight: 1
+      - path: base_minions:pCylinder1
+        weight: 1
+      - path: base_minions:pCylinder1/base_minions:transform2
+        weight: 1
+      - path: base_minions:pCylinder2
+        weight: 1
+      - path: base_minions:pCylinder2/base_minions:transform4
+        weight: 1
+      - path: base_minions:pCylinder3
+        weight: 1
+      - path: base_minions:pCylinder3/base_minions:transform3
+        weight: 1
+      - path: joint1
+        weight: 1
+      - path: joint1/joint2
+        weight: 1
+      - path: joint1/joint2/joint3
+        weight: 1
+      - path: joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: joint1/joint2/joint6
+        weight: 1
+      - path: joint1/joint2/joint6/joint7
+        weight: 1
+      - path: pCylinder1
+        weight: 1
+      - path: pCylinder1/transform2
+        weight: 1
+      - path: pCylinder2
+        weight: 1
+      - path: pCylinder2/transform3
+        weight: 1
+      - path: pSphere1
+        weight: 1
+      - path: pSphere1/transform1
+        weight: 1
+      - path: pSphere2
+        weight: 1
+      - path: pSphere2/transform4
+        weight: 1
+      - path: pSphere3
+        weight: 1
+      - path: pSphere3/transform6
+        weight: 1
+      - path: pSphere4
+        weight: 1
+      - path: pSphere4/transform8
+        weight: 1
+      - path: pSphere5
+        weight: 1
+      - path: pSphere5/transform5
+        weight: 1
+      - path: pSphere6
+        weight: 1
+      - path: pSphere6/transform7
+        weight: 1
+      - path: pSphere7
+        weight: 1
+      - path: pSphere7/transform10
+        weight: 1
+      - path: pSphere8
+        weight: 1
+      - path: pSphere8/transform12
+        weight: 1
+      - path: pSphere9
+        weight: 1
+      - path: pSphere9/transform9
+        weight: 1
+      - path: pSphere10
+        weight: 1
+      - path: pSphere10/transform11
+        weight: 1
+      - path: pSphere11
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
