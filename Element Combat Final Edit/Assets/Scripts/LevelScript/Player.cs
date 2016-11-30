@@ -123,7 +123,6 @@ public class Player : Character {
             Destroy(gameObject);
             Debug.Log("Players: " + GameLogic.playersAlive);
         }
-        Debug.Log("Players: " + GameLogic.playersAlive);
         healthSlider.value = currentHealth;
     }
 
@@ -132,7 +131,6 @@ public class Player : Character {
             changeHealth(_collision.gameObject.GetComponent<HealthItemScript>().healAmount);
         }
         if (_collision.gameObject.tag == "Enemy") {
-            Debug.Log("hitting");
             if (_collision.gameObject.GetComponent<Minion>() != null) {
 				changeHealth(-_collision.gameObject.GetComponent<Minion>().baseDamage);
 				charHit = true;

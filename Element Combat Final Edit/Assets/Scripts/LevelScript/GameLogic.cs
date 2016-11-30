@@ -24,8 +24,12 @@ public class GameLogic : MonoBehaviour {
     public static uint healthItemDropsForLevel = 0;
     public static uint healthItemsAlreadyDropped = 0;
     public uint startLevelHealthItemDrops;
+    public uint[] minionsSpawnOnButton = new uint[4] { 5, 10, 15, 20 };
     bool playersSpawned;
     float timePassed;
+    float completionTime;
+    bool enemyHasSpawned;
+
 
     private string element, element1, element2;
     private int nextPos;
@@ -49,6 +53,21 @@ public class GameLogic : MonoBehaviour {
         
     }
 
+    void OnGUI() {
+        if (enemiesAlive == 0) {
+            if (GUI.Button(new Rect(10, 10, 50, 50), "5"))
+                spawnEnemies(minionsSpawnOnButton[0], 0, 1);
+            if (GUI.Button(new Rect(10, 60, 50, 50), "10"))
+                spawnEnemies(minionsSpawnOnButton[1], 0, 1);
+            if (GUI.Button(new Rect(10, 110, 50, 50), "15"))
+                spawnEnemies(minionsSpawnOnButton[2], 0, 1);
+            if (GUI.Button(new Rect(10, 170, 50, 50), "20"))
+                spawnEnemies(minionsSpawnOnButton[3], 0, 1);
+        }
+    }
+
+    
+
     void Update() {
         timePassed = Time.time;
         checkGameState(playersAlive, enemiesAlive);
@@ -62,7 +81,6 @@ public class GameLogic : MonoBehaviour {
     }
 
     private void startLevel(uint currentLevel) {
-        healthItemDropsForLevel = startLevelHealthItemDrops - currentLevel;
         healthItemsAlreadyDropped = 0;
         spawnEnemies(minionSpawnAmount, monsterSpawnAmount, currentLevel);
         if (!playersSpawned) {
@@ -82,6 +100,7 @@ public class GameLogic : MonoBehaviour {
     }
 
     private void spawnEnemies(uint minionSpawnAmount, uint monsterSpawnAmount, uint currentLevel) {
+        
         int nextSpawnPoint = 0;
         minionSpawnAmount *= monsterAmountWeight * currentLevel;
         monsterSpawnAmount *= monsterAmountWeight * currentLevel;
@@ -115,6 +134,7 @@ public class GameLogic : MonoBehaviour {
                 Temporary_Enemy_Handler.GetComponent<Minion>().element = element;
             }
             nextSpawnPoint++;
+            enemyHasSpawned = true;
             enemiesAlive++;
         }
 
@@ -135,6 +155,7 @@ public class GameLogic : MonoBehaviour {
                 Temporary_Enemy_Handler.GetComponent<Monster>().element1 = element1;
                 Temporary_Enemy_Handler.GetComponent<Monster>().element2 = element2;
             }
+            
             enemiesAlive++;
         }
 
@@ -165,9 +186,12 @@ public class GameLogic : MonoBehaviour {
             startLevel(currentLevel);
         }
 
-        if (enemiesAlive == 0 && playersAlive != 0) {
-            endLevel();
-            startLevel(currentLevel++);
+        if (enemiesAlive == 0 && playersAlive != 0 && enemyHasSpawned) {
+            enemyHasSpawned = false;
+            Debug.Log("Time survived: " + Time.time);
+            Debug.Break();
+            //endLevel();
+            //startLevel(currentLevel++);
         }
     }
 
