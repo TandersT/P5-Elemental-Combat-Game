@@ -134,10 +134,9 @@ public class Player : Character {
         if (_collision.gameObject.tag == "Enemy") {
             Debug.Log("hitting");
             if (_collision.gameObject.GetComponent<Minion>() != null) {
-                changeHealth(-_collision.gameObject.GetComponent<Minion>().baseDamage);
-                charHit = true;
-                Destroy(_collision.gameObject);
-                GameLogic.enemiesAlive--;
+				changeHealth(-_collision.gameObject.GetComponent<Minion>().baseDamage);
+				charHit = true;
+
             }
         }   
         if (_collision.gameObject.tag == "Bullet") {

@@ -33,7 +33,18 @@ public class Minion : Enemy {
         if (_collision.gameObject.tag == "Enemy") {
             playerOverride = true;
         }
+
+		if (_collision.gameObject.tag == "Player") {
+			Invoke ("DestroyMinion", 2);
+		}
+
     }
+
+	void DestroyMinion () {
+
+		Destroy(gameObject);
+		GameLogic.enemiesAlive--;
+	}
 
     void searchAndDestroy(){
         Vector3 position = transform.position;
