@@ -29,6 +29,7 @@ public class GameLogic : MonoBehaviour {
     float timePassed;
     float completionTime;
     bool enemyHasSpawned;
+    public float repspawnTime;
 
 
     private string element, element1, element2;
@@ -55,13 +56,13 @@ public class GameLogic : MonoBehaviour {
 
     void OnGUI() {
         if (enemiesAlive == 0) {
-            if (GUI.Button(new Rect(10, 10, 50, 50), "5"))
+            if (GUI.Button(new Rect(10, 10, 50, 50), "1. wave"))
                 spawnEnemies(minionsSpawnOnButton[0], 0, 1);
-            if (GUI.Button(new Rect(10, 60, 50, 50), "10"))
+            if (GUI.Button(new Rect(10, 60, 50, 50), "2. wave"))
                 spawnEnemies(minionsSpawnOnButton[1], 0, 1);
-            if (GUI.Button(new Rect(10, 110, 50, 50), "15"))
+            if (GUI.Button(new Rect(10, 110, 50, 50), "3. wave"))
                 spawnEnemies(minionsSpawnOnButton[2], 0, 1);
-            if (GUI.Button(new Rect(10, 170, 50, 50), "20"))
+            if (GUI.Button(new Rect(10, 170, 50, 50), "4. wave"))
                 spawnEnemies(minionsSpawnOnButton[3], 0, 1);
         }
     }
@@ -178,18 +179,38 @@ public class GameLogic : MonoBehaviour {
         }
     }
 
+    IEnumerator MyFunction(GameObject Players, int pos, float delayTime) {
+        yield return new WaitForSeconds(delayTime);
+        Players.transform.position = PlayerSpawnPos[pos].transform.position;
+        Players.GetComponent<Player>().currentHealth = Players.GetComponent<Player>().healthSlider.maxValue;
+        Players.GetComponent<Player>().healthSlider.value = Players.GetComponent<Player>().currentHealth;
+        Players.SetActive(true);
+        GameLogic.playersAlive++;
+        Players.GetComponent<Player>().alive = true;
+
+    }
+
     private void checkGameState(uint playersAlive, uint enemiesAlive) {
+        for (int i = 0; i < Players.Length; i++) {
+            if (Players[i] != null) { 
+                if (!Players[i].GetComponent<Player>().alive) {
+                    GameLogic.playersAlive--;
+                    Players[i].SetActive(false);
+                    StartCoroutine(MyFunction(Players[i], i, repspawnTime));
+                }
+            }
+        }
+        
+
         if (playersAlive == 0) {
             Debug.Log("Time survived: " + Time.time);
-            Debug.Break();
-            endLevel();
-            startLevel(currentLevel);
+            ///endLevel();
+            //startLevel(currentLevel);
         }
 
         if (enemiesAlive == 0 && playersAlive != 0 && enemyHasSpawned) {
             enemyHasSpawned = false;
             Debug.Log("Time survived: " + Time.time);
-            Debug.Break();
             //endLevel();
             //startLevel(currentLevel++);
         }

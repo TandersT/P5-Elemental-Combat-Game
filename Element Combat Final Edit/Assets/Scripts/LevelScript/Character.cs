@@ -37,7 +37,6 @@ public class Character : MonoBehaviour {
             GameObject Projectile;
             Projectile = Instantiate(ProjectilePrefab, ProjectileSpawn.transform.position, ProjectileSpawn.transform.rotation) as GameObject;
             if (Owner.gameObject.tag == "Player") {
-                Projectile.GetComponent<ProjectileScript>().element = Owner.GetComponent<Player>().element;
                 Projectile.GetComponent<ProjectileScript>().baseDamage = Owner.GetComponent<Player>().baseDamage;
                 //Physics.IgnoreCollision(Projectile.GetComponent<Collider>(), GetComponent<Collider>());
                 //Retrieve the Rigidbody component from the instantiated Bullet and control it.

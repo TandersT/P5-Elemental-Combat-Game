@@ -119,10 +119,7 @@ public class Player : Character {
         } else if (currentHealth <= 0.0f && alive == true) {
             currentHealth = 0.0f;
             alive = false;
-            GameLogic.playersAlive--;
-            Destroy(gameObject);
-            Debug.Log("Players: " + GameLogic.playersAlive);
-        }
+            }
         healthSlider.value = currentHealth;
     }
 
