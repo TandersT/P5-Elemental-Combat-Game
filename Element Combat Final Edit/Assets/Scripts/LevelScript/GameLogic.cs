@@ -38,8 +38,7 @@ public class GameLogic : MonoBehaviour {
     public Text levelText;
 
     void Awake() {
-
-        //numbersofplayers set to playersconnected
+        startLevel(currentLevel);
     }
 
     void Start() {
@@ -48,21 +47,17 @@ public class GameLogic : MonoBehaviour {
             EnemySpawnPos[nextPos] = enemySpawn;
             nextPos++;
         }
-        if (true) {
-            startLevel(currentLevel);
-        }
-        
     }
 
     void OnGUI() {
         if (enemiesAlive == 0) {
-            if (GUI.Button(new Rect(10, 10, 50, 50), "1. wave"))
+            if (GUI.Button(new Rect(10, 10, 80, 50), "1. wave"))
                 spawnEnemies(minionsSpawnOnButton[0], 0, 1);
-            if (GUI.Button(new Rect(10, 60, 50, 50), "2. wave"))
+            if (GUI.Button(new Rect(10, 60, 80, 50), "2. wave"))
                 spawnEnemies(minionsSpawnOnButton[1], 0, 1);
-            if (GUI.Button(new Rect(10, 110, 50, 50), "3. wave"))
+            if (GUI.Button(new Rect(10, 110, 80, 50), "3. wave"))
                 spawnEnemies(minionsSpawnOnButton[2], 0, 1);
-            if (GUI.Button(new Rect(10, 170, 50, 50), "4. wave"))
+            if (GUI.Button(new Rect(10, 170, 80, 50), "4. wave"))
                 spawnEnemies(minionsSpawnOnButton[3], 0, 1);
         }
     }
@@ -203,14 +198,14 @@ public class GameLogic : MonoBehaviour {
         
 
         if (playersAlive == 0) {
-            Debug.Log("Time survived: " + Time.time);
+            //Debug.Log("Time survived: " + Time.time);
             ///endLevel();
             //startLevel(currentLevel);
         }
 
         if (enemiesAlive == 0 && playersAlive != 0 && enemyHasSpawned) {
-            enemyHasSpawned = false;
-            Debug.Log("Time survived: " + Time.time);
+            //enemyHasSpawned = false;
+            //Debug.Log("Time survived: " + Time.time);
             //endLevel();
             //startLevel(currentLevel++);
         }
