@@ -175,14 +175,13 @@ public class GameLogic : MonoBehaviour {
     }
 
     IEnumerator MyFunction(GameObject Players, int pos, float delayTime) {
-        yield return new WaitForSeconds(delayTime);
         Players.transform.position = PlayerSpawnPos[pos].transform.position;
+        GameLogic.playersAlive++;
+        yield return new WaitForSeconds(delayTime);
+        Players.SetActive(true);
+        Players.GetComponent<Player>().alive = true;
         Players.GetComponent<Player>().currentHealth = Players.GetComponent<Player>().healthSlider.maxValue;
         Players.GetComponent<Player>().healthSlider.value = Players.GetComponent<Player>().currentHealth;
-        Players.SetActive(true);
-        GameLogic.playersAlive++;
-        Players.GetComponent<Player>().alive = true;
-
     }
 
     private void checkGameState(uint playersAlive, uint enemiesAlive) {
@@ -204,6 +203,12 @@ public class GameLogic : MonoBehaviour {
         }
 
         if (enemiesAlive == 0 && playersAlive != 0 && enemyHasSpawned) {
+            for (int i = 0; i < Players.Length; i++) {
+                if (Players[i] != null) {
+                    StartCoroutine(MyFunction(Players[i], i, 1f));
+                }
+            }
+            
             //enemyHasSpawned = false;
             //Debug.Log("Time survived: " + Time.time);
             //endLevel();

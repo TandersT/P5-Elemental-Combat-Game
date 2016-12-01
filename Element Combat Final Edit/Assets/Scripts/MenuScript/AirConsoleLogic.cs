@@ -61,7 +61,7 @@ public class AirConsoleLogic : MonoBehaviour {
 
     void OnMessage(int device_id, JToken data) {
         active_player = AirConsole.instance.ConvertDeviceIdToPlayerNumber(device_id);
-        menuScene("Menu", data);
+        //menuScene("Menu", data);
         levelScene("Level", data);
     }
 

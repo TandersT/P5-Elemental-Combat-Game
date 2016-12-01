@@ -23,8 +23,10 @@ public class Player : Character {
     public bool attacked = false;
     public Color hpColor;
     public Image Fill;
+    public AudioSource attackSound;
 
     void Awake() {
+        attackSound = GetComponent<AudioSource>();
         playerRB = GetComponentInChildren<Rigidbody>();
         healthSlider = GameObject.Find(healthSliders[playerID]).GetComponent<Slider>();
         Fill = healthSlider.GetComponentInChildren<Image>();
@@ -65,6 +67,9 @@ public class Player : Character {
         }
         if (attacked) {
             anim.SetTrigger("attack");
+            if (!attackSound.isPlaying) {
+                attackSound.Play();
+            }
         }
         if (charMove) {
             anim.SetTrigger("walk");
